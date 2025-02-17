@@ -1,0 +1,114 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Navbar Custom Styling */
+.navbar-custom {
+    background-color: #ffffff !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+    
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Brand Styling */
+.navbar-brand-custom {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #000000;
+    margin-right: auto; /* Ensures the brand stays on the left */
+}
+
+/* Align Navbar Items to the Right */
+.navbar-nav {
+    margin-left: auto; /* Pushes items to the right */
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+    color: rgb(0, 0, 0) !important;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px 15px;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* Underline Effect */
+.navbar-nav .nav-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: #0056b3;
+    position: absolute;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #47a0ff !important;
+}
+
+/* Navbar Toggle Button */
+.navbar-toggler {
+    border-color: transparent;
+    outline: none;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: white;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px;
+        font-size: 1.5rem;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 50%;
+    }
+}
+
+/* Landing Page Styling */
+.landing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    text-align: center;
+    background: #ffffff;
+}
+
+/* Ensure sections don't get hidden behind navbar */
+.section {
+    min-height: 100vh; /* Ensure each section fills the screen */
+}
+
+/* Make sure navbar links have smooth scrolling */
+.navbar-nav .nav-link {
+    cursor: pointer;
+}

@@ -1,0 +1,163 @@
+/* Make the landing page take full screen height */
+.landing-container {
+    width: 100%;
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #ffffff, #ffffff);
+}
+
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Lazy load for "Gokul S" */
+.name-lazy-load {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInSlide 1.5s ease-out forwards;
+    animation-delay: 0.5s; /* Slight delay */
+}
+
+/* Lazy load for "Web Developer" */
+.role-lazy-load {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInSlide 1.5s ease-out forwards;
+    animation-delay: 1s; /* Slightly longer delay for staggered effect */
+}
+
+/* Text styling */
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    color: #555;
+}
+
+.highlight {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #444;
+    margin: 20px 0;
+}
+
+/* Button styling */
+.btn-primary {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Profile image styling */
+.profile-img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Social Media Icons */
+/* Social Media Icons */
+.social-links {
+    display: flex;
+    gap: 20px; /* Space between icons */
+    margin-top: 10px;
+}
+
+/* Default icon style */
+.social-icon {
+    font-size: 2.5rem; /* Adjust icon size */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* LinkedIn Icon */
+.linkedin {
+    color: #0077b5; /* LinkedIn Blue */
+}
+
+.linkedin:hover {
+    color: #005582;
+    transform: scale(1.2);
+}
+
+/* GitHub Icon */
+.github {
+    color: #333; /* Dark GitHub Color */
+}
+
+.github:hover {
+    color: #000;
+    transform: scale(1.2);
+}
+
+/* LeetCode Icon */
+.leetcode {
+    color: #f89f1b; /* LeetCode Orange */
+}
+
+.leetcode:hover {
+    color: #e48d09;
+    transform: scale(1.2);
+}
+
+/* Get CV Button */
+.get-cv-btn {
+    margin-top: 9px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+/* Hover Effect */
+.get-cv-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003b80);
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 91, 187, 0.5);
+}
+
+/* Click Effect */
+.get-cv-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 8px rgba(0, 91, 187, 0.3);
+}
+
+@keyframes floatImage {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.profile-img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: floatImage 3s ease-in-out infinite;
+}
