@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MyNavbar from "./components/Navbar"; // Import the Navbar
 import Landing from "./components/Landing";
-import About from "./components/About";
+import About from "./components/AboutMe";
 
 function App() {
   return (

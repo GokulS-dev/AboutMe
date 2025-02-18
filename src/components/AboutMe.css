@@ -1,0 +1,589 @@
+/* About Page Styling */
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 750px;
+    text-align: left;
+    background: #ffffff;
+}
+
+
+/* Stretch Image to Match Skills & Education */
+/* About Image with Slide-In Animation */
+.about-img {
+    width: 1000px; /* Adjusted size */
+    height: 280px;
+    border-radius: 50%; /* Makes the image circular *//* Responsive Design */
+    @media (max-width: 991px) {
+        .about-container {
+            text-align: center;
+        }
+    
+        .about-img {
+            max-height: 400px;
+            margin-bottom: 20px;
+        }
+    
+        .education-container {
+            align-items: center;
+        }
+    
+        .education-item {
+            flex-direction: column;
+        }
+    
+        /* Skills Section */
+        .skills-category {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #444;
+            margin-top: 10px;
+            position: relative;
+            text-align: center; /* Center the skill category text */
+        }
+    
+        /* Adjust underline to be below the skill headings */
+        .skills-category::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #0056b3;
+            margin-top: 10px; /* Increased margin to move underline down */
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        /* Center skills icons in mobile view */
+        .skills-icons {
+            display: flex;
+            justify-content: center; /* Center icons */
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+    
+        /* Individual Skill Icons */
+        .skill-icon {
+            font-size: 2.5rem;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+    
+        .skill-icon:hover {
+            transform: scale(1.2);
+        }
+    
+        /* Skills Category Underline */
+        .skills-category::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #0056b3;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    object-fit: cover; /* Ensures the image fills the circular shape */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    animation: slideIn 1.5s ease-out forwards; /* Apply slide-in animation */
+}
+
+/* Slide-In Animation from Left to Right */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%); /* Start off the screen to the left */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0); /* End position at the center */
+        opacity: 1;/* About Page Styling */
+        .about-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            text-align: left;
+            background: #ffffff;
+            padding-top: 20px !important; /* Reduced padding */
+        }
+        
+        /* Stretch Image to Match Skills & Education */
+        /* About Image with Slide-In Animation */
+        .about-img {
+            width: 1000px; /* Adjusted size */
+            height: 280px;
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Ensures the image fills the circular shape */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            animation: slideIn 1.5s ease-out forwards; /* Apply slide-in animation */
+        }
+        
+        /* Slide-In Animation from Left to Right */
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%); /* Start off the screen to the left */
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0); /* End position at the center */
+                opacity: 1;
+            }
+        }
+        
+        /* Education Section with Slide-in Effect */
+        .education-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 10px;
+            animation: fadeInUp 1.5s ease-out forwards; /* Same animation speed as image */
+        }
+        
+        /* Education Items with Fade-in Effect */
+        .education-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: fadeInUp 1.5s ease-out forwards; /* Same animation speed as image */
+        }
+        
+        /* Fade-in Up Animation for Education */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Skills Section with Fade-in Effect */
+        .skills-category {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #444;
+            margin-top: 10px;
+            position: relative;
+            animation: fadeInUp 1.5s ease-out forwards; /* Same animation speed as image */
+        }
+        
+        .skills-icons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+            animation: fadeInUp 1.5s ease-out forwards; /* Same animation speed as image */
+        }
+        
+        /* Skills Category Underline */
+        .skills-category::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #0056b3;
+            margin-top: 5px;
+        }
+        
+        /* Skills Icons */
+        .skill-icon {
+            font-size: 2.5rem;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        
+        .skill-icon:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Individual Skill Colors */
+        .cpp { color: #00599C; }
+        .java { color: #007396; }
+        .js { color: #F7DF1E; }
+        .python { color: #3776AB; }
+        .react { color: #61DAFB; }
+        .flutter { color: #02569B; }
+        .express { color: #333333; }
+        .node { color: #68A063; }
+        .mysql { color: #4479A1; }
+        .mongodb { color: #4DB33D; }
+        
+        /* Circular Percentage Representation */
+        .circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: conic-gradient(#0056b3 85%, #ddd 0%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1rem;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .circle:hover {
+            transform: scale(1.1);
+        }
+        
+        .percentage {
+            font-size: 1rem;
+        }
+        
+        /* Education Text */
+        .education-text {
+            font-size: 1.2rem;
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        /* Fade-in Animations */
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeInLeft 1.5s forwards; /* Adjusted for speed consistency */
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: fadeInRight 1.5s forwards; /* Adjusted for speed consistency */
+        }
+        
+        @keyframes fadeInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .about-container {
+                text-align: center;
+            }
+        
+            .about-img {
+                max-height: 400px;
+                margin-bottom: 20px;
+            }
+        
+            .education-container {
+                align-items: center;/* About Page Styling */
+                .about-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: left;
+                    background: #ffffff;
+                    padding-top: 20px !important;
+                    flex-direction: column; /* Ensures better responsiveness */
+                }
+                
+                /* About Image with Slide-In Animation */
+                .about-img {
+                    max-width: 100%; /* Makes it responsive */
+                    height: auto;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease-in-out;
+                    animation: slideIn 1.5s ease-out forwards;
+                }
+                
+                /* Slide-In Animation */
+                @keyframes slideIn {
+                    0% {
+                        transform: translateX(-100%);
+                        opacity: 0;
+                    }
+                    100% {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+                
+                /* Education Section */
+                .education-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    margin-top: 10px;
+                    animation: fadeInUp 1.5s ease-out forwards;
+                }
+                
+                .education-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                }
+                
+                /* Fade-in Animation */
+                @keyframes fadeInUp {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                /* Skills Section */
+                .skills-category {
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                    color: #444;
+                    margin-top: 10px;
+                    position: relative;
+                }
+                
+                .skills-category::after {
+                    content: "";
+                    display: block;
+                    width: 50px;
+                    height: 3px;
+                    background: #0056b3;
+                    margin-top: 5px;
+                }
+                
+                /* Skills Icons */
+                .skills-icons {
+                    display: flex;
+                    gap: 15px;
+                    flex-wrap: wrap;
+                    margin-top: 5px;
+                }
+                
+                .skill-icon {
+                    font-size: 2.5rem;
+                    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+                }
+                
+                .skill-icon:hover {
+                    transform: scale(1.2);
+                }
+                
+                /* Individual Skill Colors */
+                .cpp { color: #00599C; }
+                .java { color: #007396; }
+                .js { color: #F7DF1E; }
+                .python { color: #3776AB; }
+                .react { color: #61DAFB; }
+                .flutter { color: #02569B; }
+                .express { color: #333333; }
+                .node { color: #68A063; }
+                .mysql { color: #4479A1; }
+                .mongodb { color: #4DB33D; }
+                
+                /* Circular Percentage Representation */
+                .circle {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background: conic-gradient(#0056b3 85%, #ddd 0%);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    color: white;
+                    font-size: 1rem;
+                    transition: transform 0.3s ease-in-out;
+                }
+                
+                .circle:hover {
+                    transform: scale(1.1);
+                }
+                
+                /* Responsive Design */
+                @media (max-width: 991px) {
+                    .about-container {
+                        text-align: center;
+                    }
+                
+                    .about-img {
+                        max-height: 400px;
+                        margin-bottom: 20px;
+                    }
+                
+                    .education-container {
+                        align-items: center;
+                    }
+                
+                    .education-item {
+                        flex-direction: column;
+                    }
+                }
+                
+            }
+        
+            .education-item {
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+
+
+/* Section Title */
+.sub-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0056b3;
+    margin-top: 20px;
+}
+
+/* Skills Categories with Underline */
+.skills-category {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #444;
+    margin-top: 10px;
+    position: relative;
+}
+
+.skills-category::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #0056b3;
+    margin-top: 5px;
+}
+
+/* Skills Icons */
+.skills-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.skill-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Individual Skill Colors */
+.cpp { color: #00599C; }
+.java { color: #007396; }
+.js { color: #F7DF1E; }
+.python { color: #3776AB; }
+.react { color: #61DAFB; }
+.flutter { color: #02569B; }
+.express { color: #333333; }
+.node { color: #68A063; }
+.mysql { color: #4479A1; }
+.mongodb { color: #4DB33D; }
+
+/* Education Section */
+.education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.education-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Circular Percentage Representation */
+.circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: conic-gradient(#0056b3 85%, #ddd 0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.circle:hover {
+    transform: scale(1.1);
+}
+
+.percentage {
+    font-size: 1rem;
+}
+
+/* Education Text */
+.education-text {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Fade-in Animations */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fadeInLeft 1s forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: fadeInRight 1s forwards;
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .about-container {
+        text-align: center;
+    }
+
+    .about-img {
+        max-height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .education-container {
+        align-items: center;
+    }
+
+    .education-item {
+        flex-direction: column;
+    }
+}
