@@ -1,0 +1,157 @@
+/* PROJECT CARD STYLING */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
+  height: 100%; /* Ensures all cards have the same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* Fade-in and Slide-up Animation */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to the main projects container */
+#projects {
+  animation: fadeSlideIn 0.8s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+/* TECH STACK ICONS */
+.tech-icons {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+/* PRIZE BADGE */
+.prize-badge {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.8rem; /* Adjust size as needed */
+  margin-bottom: 10px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PROJECT IMAGE */
+.project-card img {
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Ensures images are well-fitted */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* CARD BODY STYLING */
+.project-card .card-body {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* PROJECT TITLE */
+.project-card .card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* PROJECT DESCRIPTION */
+.project-card .card-text {
+  font-size: 1rem;
+  color: #555;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Limit text to exactly 4 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* HOVER OVERLAY EFFECT */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(192, 192, 192, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+/* ICON STYLING */
+.icon {
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  color: #007bff;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .project-card {
+    margin-bottom: 20px;
+  }
+
+  .project-card .card-title {
+    font-size: 1rem;
+  }
+
+  .project-card .card-text {
+    font-size: 0.9rem;
+  }
+
+  .icon {
+    font-size: 25px;
+  }
+
+}
+

@@ -1,18 +1,26 @@
-import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./AboutMe.css"; // Import custom styles
-import aboutImg from "../assets/Profile.jpg"; // Replace with your actual image
+import aboutImg from "../assets/me2.jpeg"; // Replace with your actual image
 import { FaJava, FaJs, FaReact, FaNodeJs, FaPython } from "react-icons/fa";
 import { SiCplusplus, SiDart, SiFlutter, SiExpress, SiMongodb, SiMysql } from "react-icons/si";
+import HomeButton from "./HomeBtn"; // Import Home Button
 
 const About = () => {
+  // Education Data
+  var educationData = [
+    { percentage: 71.16, degree: "B.E in Computer Science", school: "Kongu Engineering College", year: "2022 - 2026" },
+    { percentage: 80, degree: "HSC", school: "Kongu Vellelar Matric Higher Secondary School", year: "2021 - 2022" },
+    { percentage: 63, degree: "SSLC", school: "Kongu Vellelar Matric Higher Secondary School", year: "2019 - 2020" }
+  ];
+
   return (
     <div id="about" className="about-container section">
       <Container>
         <Row className="align-items-center">
           {/* Left Side: Stretched Image */}
           <Col md={6} className="text-center">
-          <img src={aboutImg} alt="About" className="img-fluid about-img animated-image" />          </Col>
+            <img src={aboutImg} alt="About" className="img-fluid about-img animated-image" />
+          </Col>
 
           {/* Right Side: Skills & Education */}
           <Col md={6} className="text-left fade-in-right">
@@ -53,30 +61,28 @@ const About = () => {
             {/* Education Section */}
             <h3 className="sub-title">Education</h3>
             <div className="education-container">
-              <div className="education-item">
-                <div className="circle">
-                  <span className="percentage">71.16%</span>
+              {educationData.map((edu, index) => (
+                <div className="education-item" key={index}>
+                  {/* Circular Progress Bar */}
+                  <div className="circle" style={{
+                    background: `conic-gradient(#0056b3 ${edu.percentage}%, #ddd 0%)`
+                  }}>
+                    <span className="percentage">{edu.percentage}%</span>
+                  </div>
+                  {/* Education Details */}
+                  <p className="education-text">
+                    <strong>{edu.degree}</strong><br />
+                    {edu.school}. {edu.year}
+                  </p>
                 </div>
-                <p className="education-text"><strong>B.E in Computer Science</strong><br />Kongu Engineering College. 2022 - 2026</p>
-              </div>
-
-              <div className="education-item">
-                <div className="circle">
-                  <span className="percentage">80%</span>
-                </div>
-                <p className="education-text"><strong>HSC</strong><br />Kongu Vellelar Matric Higher Secondary School. 2021 - 2022</p>
-              </div>
-
-              <div className="education-item">
-                <div className="circle">
-                  <span className="percentage">63%</span>
-                </div>
-                <p className="education-text"><strong>SSLC</strong><br />Kongu Vellelar Matric Higher Secondary School. 2019 - 2020</p>
-              </div>
+              ))}
             </div>
           </Col>
         </Row>
       </Container>
+
+      {/* ✅ Home Button (Fixed Bottom-Right) */}
+      <HomeButton />
     </div>
   );
 };
