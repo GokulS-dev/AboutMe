@@ -1,6 +1,7 @@
 import React from "react";
 import "./Contact.css"; // Optional custom styles
 import contactImage from "../assets/contactImg.jpg";
+import HomeButton from "./HomeBtn"; // Import Home Button
 
 const Contact = () => {
   return (
@@ -39,6 +40,7 @@ const Contact = () => {
       <footer className="text-center mt-5 p-3 bg-white ">
         <p>© 2025 | Designed & Maintained by Gokul</p>
       </footer>
+      <HomeButton/>
     </div>
   );
 };
