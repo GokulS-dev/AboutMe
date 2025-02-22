@@ -4,6 +4,7 @@ import MyNavbar from "./components/Navbar"; // Import the Navbar
 import Landing from "./components/Landing";
 import About from "./components/AboutMe";
 import Projects from "./components/Projects"; // Import Projects component
+import Contact from "./components/Contact"; // ✅ Import Contact component
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} /> {/* Add Projects Route */}
+          <Route path="/contact" element={<Contact />} /> {/* Contact Route */}
         </Routes>
       </div>
     </Router>
