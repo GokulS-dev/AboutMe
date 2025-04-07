@@ -6,7 +6,7 @@ import "./Projects.css"; // Import CSS for styling
 import HomeButton from "./HomeBtn"; // Import Home Button
 
 // Import images
-import P1 from "../assets/pp1.jpeg";
+import P1 from "../assets/Gemini_Generated_Image_e248t3e248t3e248.jpeg";
 import P2 from "../assets/p2.jpeg";
 import P3 from "../assets/p3.jpeg";
 import P4 from "../assets/p4.jpeg";
