@@ -26,10 +26,10 @@ const Landing = () => {
                 Hi, I'm <span className="highlight name-lazy-load">Gokul S 🧑🏻‍💻</span>
               </h1>
               <h2 className="subtitle">
-                A Passionate <span className="highlight role-lazy-load">Web 🧑🏻‍💻 and Mobile 📱 Application Developer</span>
+                A Passionate <span className="highlight role-lazy-load">Web 🧑🏻‍💻 Application Developer</span>
               </h2>
               <p className="description">
-                I specialize in building modern, responsive websites and applications that provide a seamless user experience.
+                I specialize in building modern, responsive websites that provide a seamless user experience.
               </p>
 
               <div className="social-links">

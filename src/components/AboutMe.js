@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./AboutMe.css"; // Import custom styles
 import aboutImg from "../assets/me2.jpeg"; // Replace with your actual image
 import { FaJava, FaJs, FaReact, FaNodeJs, FaPython } from "react-icons/fa";
-import { SiCplusplus, SiDart, SiFlutter, SiExpress, SiMongodb, SiMysql } from "react-icons/si";
+import { SiCplusplus, SiExpress, SiMongodb, SiMysql } from "react-icons/si";
 import HomeButton from "./HomeBtn"; // Import Home Button
 
 const About = () => {
@@ -34,14 +34,12 @@ const About = () => {
               <FaJava className="skill-icon java" title="Java" />
               <FaJs className="skill-icon js" title="JavaScript" />
               <FaPython className="skill-icon python" title="Python" />
-              <SiDart className="skill-icon dart" title="Dart" /> 
             </div>
 
             {/* Frontend */}
             <h4 className="skills-category">Frontend</h4>
             <div className="skills-icons">
               <FaReact className="skill-icon react" title="React.js" />
-              <SiFlutter className="skill-icon flutter" title="Flutter" />
             </div>
 
             {/* Backend */}
