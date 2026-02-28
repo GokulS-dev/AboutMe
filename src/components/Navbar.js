@@ -1,58 +1,85 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import "./Navbar.css"; // Import the CSS file
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import "./Navbar.css";
 
-const MyNavbar = () => {
-  const [expanded, setExpanded] = useState(false);
-  const navRef = useRef(null);
+const navItems = [
+  { id: "hero", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
+];
 
-  // Close the navbar when scrolling
+const Navbar = ({ activeSection }) => {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
-      if (expanded) {
-        setExpanded(false);
-      }
+      setScrolled(window.scrollY > 40);
+      if (window.scrollY > 40) setMenuOpen(false); // auto-close on scroll
     };
-
     window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [expanded]);
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
+  };
 
   return (
-    <Navbar
-      ref={navRef}
-      className="navbar-custom fixed-top"
-      expand="lg"
-      bg="light"
-      expanded={expanded}
-    >
-      <Container>
-        {/* Navbar Brand */}
-        <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
-          {"<< G/S >>"}
-        </Navbar.Brand>
+    <nav className={`navbar-spa ${scrolled ? "navbar-scrolled" : ""}`}>
+      <div className="navbar-inner">
+        <button
+          className="nav-brand"
+          onClick={() => scrollTo("hero")}
+          aria-label="Go to top"
+        >
+          <span className="brand-bracket">&lt;</span>
+          <span className="brand-name">G/S</span>
+          <span className="brand-bracket">/&gt;</span>
+        </button>
 
-        {/* Navbar Toggler for Mobile */}
-        <Navbar.Toggle
-          aria-controls="basic-navbar-nav"
-          onClick={() => setExpanded(!expanded)}
-        />
+        {/* Desktop nav */}
+        <ul className="nav-links">
+          {navItems.map((item) => (
+            <li key={item.id}>
+              <button
+                className={`nav-link-btn ${activeSection === item.id ? "active" : ""}`}
+                onClick={() => scrollTo(item.id)}
+              >
+                {item.label}
+                <span className="nav-dot" />
+              </button>
+            </li>
+          ))}
+        </ul>
 
-        {/* Navbar Items */}
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto"> {/* ms-auto pushes items to the right */}
-            <Nav.Link as={Link} to="/about">About 🤔</Nav.Link>
-            <Nav.Link as={Link} to="/projects">Projects 📂</Nav.Link> {/* Redirect to Projects Page */}
-            <Nav.Link as={Link} to="/contact">Contact ☎️</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        {/* Mobile hamburger */}
+        <button
+          className={`hamburger ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        {navItems.map((item) => (
+          <button
+            key={item.id}
+            className={`mobile-nav-btn ${activeSection === item.id ? "active" : ""}`}
+            onClick={() => scrollTo(item.id)}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+    </nav>
   );
 };
 
-export default MyNavbar;
+export default Navbar;

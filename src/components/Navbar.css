@@ -1,114 +1,208 @@
-/* Import Poppins font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
 
-/* Navbar Custom Styling */
-.navbar-custom {
-    background-color: #ffffff !important;
+/* Outer wrapper — just centres the pill, no background */
+.navbar-spa {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1050;
-    
-    font-family: 'Poppins', sans-serif;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 820px;
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+/* The actual glass pill */
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+    background: rgba(15, 15, 26, 0.75);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.4s ease;
 }
 
-/* Navbar Brand Styling */
-.navbar-brand-custom {
-    font-weight: 600;
-    font-size: 1.5rem;
-    color: #000000;
-    margin-right: auto; /* Ensures the brand stays on the left */
+.navbar-scrolled .navbar-inner {
+    background: rgba(10, 10, 20, 0.88);
+    backdrop-filter: blur(36px) saturate(180%);
+    -webkit-backdrop-filter: blur(36px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Align Navbar Items to the Right */
-.navbar-nav {
-    margin-left: auto; /* Pushes items to the right */
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
-
-/* Navbar Links */
-.navbar-nav .nav-link {
-    color: rgb(0, 0, 0) !important;
-    font-size: 1.2rem;
-    font-weight: 600;
-    padding: 10px 15px;
-    position: relative;
-    transition: color 0.3s ease-in-out;
-    text-align: center;
-}
-
-/* Underline Effect */
-.navbar-nav .nav-link::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 3px;
-    background-color: #0056b3;
-    position: absolute;
-    left: 0;
-    transition: width 0.3s ease-in-out;
-}
-
-/* Hover Effect */
-.navbar-nav .nav-link:hover::after {
-    width: 100%;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #47a0ff !important;
-}
-
-/* Navbar Toggle Button */
-.navbar-toggler {
-    border-color: transparent;
-    outline: none;
-}
-
-/* Mobile View Adjustments */
-@media (max-width: 991px) {
-    .navbar-collapse {
-        background: white;
-        padding: 20px 0;
-        text-align: center;
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .navbar-nav .nav-link {
-        padding: 10px;
-        font-size: 1.5rem;
-    }
-
-    .navbar-nav .nav-link:hover::after {
-        width: 50%;
-    }
-}
-
-/* Landing Page Styling */
-.landing-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    text-align: center;
-    background: #ffffff;
-}
-
-/* Ensure sections don't get hidden behind navbar */
-.section {
-    min-height: 100vh; /* Ensure each section fills the screen */
-}
-
-/* Make sure navbar links have smooth scrolling */
-.navbar-nav .nav-link {
+/* Brand */
+.nav-brand {
+    background: none;
+    border: none;
     cursor: pointer;
+    font-family: 'Fira Code', monospace;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    letter-spacing: 1px;
+}
+
+.brand-bracket {
+    color: #6366f1;
+    font-size: 1.2rem;
+}
+
+.brand-name {
+    color: #f1f5f9;
+    font-size: 1.1rem;
+}
+
+/* Desktop links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #6366f1;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.nav-link-btn:hover {
+    color: #f1f5f9;
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.nav-link-btn.active {
+    color: #f1f5f9;
+    background: rgba(99, 102, 241, 0.15);
+}
+
+.nav-link-btn.active .nav-dot {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu — drops below the pill */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 16px 16px;
+    margin-top: 10px;
+    background: rgba(15, 15, 26, 0.92);
+    backdrop-filter: blur(32px) saturate(160%);
+    -webkit-backdrop-filter: blur(32px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.mobile-menu.open {
+    display: flex;
+    max-height: 300px;
+}
+
+.mobile-nav-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm, 8px);
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-btn:hover,
+.mobile-nav-btn.active {
+    color: #f1f5f9;
+    background: rgba(99, 102, 241, 0.15);
+}
+
+@media (max-width: 768px) {
+    .navbar-spa {
+        width: 92%;
+        top: 12px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
 }

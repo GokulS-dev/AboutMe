@@ -1,6 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "./AboutMe.css"; // Import custom styles
-import aboutImg from "../assets/me2.jpeg"; // Replace with your actual image
 import { FaJava, FaJs, FaReact, FaNodeJs, FaPython } from "react-icons/fa";
 import { SiCplusplus, SiExpress, SiMongodb, SiMysql } from "react-icons/si";
 import HomeButton from "./HomeBtn"; // Import Home Button
@@ -17,16 +16,12 @@ const About = () => {
     <div id="about" className="about-container section">
       <Container>
         <Row className="align-items-center">
-          {/* Left Side: Stretched Image */}
-          <Col md={6} className="text-center">
-            <img src={aboutImg} alt="About" className="img-fluid about-img animated-image" />
-          </Col>
 
           {/* Right Side: Skills & Education */}
           <Col md={6} className="text-left fade-in-right">
             {/* Skills Section */}
             <h3 className="sub-title">Skills</h3>
-            
+
             {/* Programming Languages */}
             <h4 className="skills-category">Programming Languages</h4>
             <div className="skills-icons">
