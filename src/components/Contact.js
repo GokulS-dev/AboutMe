@@ -1,9 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import {
   FaLinkedin, FaGithub, FaEnvelope,
-  FaMapMarkerAlt, FaCode, FaPaperPlane,
+  FaMapMarkerAlt, FaCode,
 } from "react-icons/fa";
-import contactImg from "../assets/contactImg.jpg";
 import emailjs from "emailjs-com";
 import "./Contact.css";
 
