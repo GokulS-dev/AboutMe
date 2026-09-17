@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   FaGithub, FaExternalLinkAlt,
   FaHtml5, FaCss3Alt, FaBootstrap, FaPython,
@@ -115,12 +115,6 @@ const projectData = [
 
 const Projects = () => {
   const sectionRef = useRef(null);
-  const [filter, setFilter] = useState("All");
-
-  const categories = ["All", ...new Set(projectData.map((p) => p.category))];
-  const filtered = filter === "All"
-    ? projectData
-    : projectData.filter((p) => p.category === filter);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
