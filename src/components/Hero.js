@@ -5,53 +5,8 @@ import profileImg from "../assets/m3.jpeg";
 import cv from "../assets/Gokul_BE .pdf";
 import "./Hero.css";
 
-const roles = [
-    "Full Stack Developer",
-    "React Enthusiast",
-    "Problem Solver",
-    "MERN Stack Developer",
-];
-
-
 const Hero = () => {
-    const [roleIndex, setRoleIndex] = useState(0);
-    const [displayed, setDisplayed] = useState("");
-    const [typing, setTyping] = useState(true);
     const [cvModalOpen, setCvModalOpen] = useState(false);
-
-    useEffect(() => {
-        const currentRole = roles[roleIndex];
-        let charIndex = 0;
-        let timeout;
-
-        if (typing) {
-            const type = () => {
-                if (charIndex <= currentRole.length) {
-                    setDisplayed(currentRole.slice(0, charIndex));
-                    charIndex++;
-                    timeout = setTimeout(type, 60);
-                } else {
-                    timeout = setTimeout(() => setTyping(false), 1800);
-                }
-            };
-            type();
-        } else {
-            const erase = () => {
-                if (charIndex >= 0) {
-                    setDisplayed(currentRole.slice(0, charIndex));
-                    charIndex--;
-                    timeout = setTimeout(erase, 35);
-                } else {
-                    setRoleIndex((prev) => (prev + 1) % roles.length);
-                    setTyping(true);
-                }
-            };
-            charIndex = currentRole.length;
-            erase();
-        }
-
-        return () => clearTimeout(timeout);
-    }, [roleIndex, typing]);
 
     // Lock body scroll when modal is open
     useEffect(() => {
@@ -66,35 +21,19 @@ const Hero = () => {
     return (
         <>
             <section id="hero" className="hero-section">
-                {/* Gradient orbs */}
-                <div className="orb orb-1" />
-                <div className="orb orb-2" />
-
                 <div className="hero-inner">
                     {/* Left content */}
                     <div className="hero-content">
                         <div className="hero-badge">
-                            <span className="badge-dot" />
-                            Available for opportunities
+                            FULL-STACK DEVELOPER · DIGITAL BUILDER
                         </div>
 
                         <h1 className="hero-title">
-                            Hi, I'm{" "}
-                            <span className="hero-name">Gokul S</span>
+                            Gokul S.
                         </h1>
 
-                        <div className="hero-role">
-                            <span className="role-prefix">I build as a&nbsp;</span>
-                            <span className="role-typed">
-                                {displayed}
-                                <span className="cursor">|</span>
-                            </span>
-                        </div>
-
                         <p className="hero-desc">
-                            I craft high-quality digital experiences — from clean interfaces
-                            to scalable backend systems. Passionate about writing meaningful,
-                            maintainable code.
+                            I build digital products, experiences and systems that turn ideas into useful technology. Passionate about writing meaningful, maintainable code.
                         </p>
 
                         <div className="hero-actions">
@@ -147,10 +86,7 @@ const Hero = () => {
 
                     {/* Right: profile image */}
                     <div className="hero-image-wrapper">
-                        <div className="hero-image-ring" />
-                        <div className="hero-image-ring ring-2" />
                         <img src={profileImg} alt="Gokul S" className="hero-profile-img" />
-                        <div className="hero-image-glow" />
                     </div>
                 </div>
 

@@ -108,28 +108,18 @@ const Contact = () => {
   return (
     <section id="contact" className="contact-section" ref={sectionRef}>
       <div className="contact-inner">
-        {/* Header */}
-        <div className="fade-in-section contact-header">
-          <span className="section-label">03. Contact</span>
-          <h2 className="section-title">
-            Let's <span className="gradient-text">Work Together</span>
-          </h2>
-          <div className="section-divider" />
-          <p className="section-subtitle">
-            Have a project in mind or just want to say hi? Feel free to reach out.
-            I'll get back to you as soon as possible.
-          </p>
-        </div>
+        <div className="contact-editorial-grid fade-in-section">
+          <div className="contact-editorial-left">
+            <span className="section-label">03. Contact</span>
+            <h2 className="section-title">Let's Work<br/>Together</h2>
+            <div className="section-divider" />
 
-        <div className="contact-grid">
-          {/* Left: info */}
-          <div className="contact-left fade-in-section">
-            <div className="contact-image-wrapper">
-              <img src={contactImg} alt="Contact" className="contact-img" />
-              <div className="contact-img-overlay" />
-            </div>
+            <p className="contact-desc-clean">
+              Have a project in mind or just want to say hi? Feel free to reach out.
+              I'll get back to you as soon as possible.
+            </p>
 
-            <div className="contact-info-list">
+            <div className="contact-info-clean">
               {contactInfo.map((item, i) => (
                 item.href ? (
                   <a
@@ -137,117 +127,101 @@ const Contact = () => {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="contact-info-item"
+                    className="contact-info-link"
                   >
-                    <span className="contact-info-icon">{item.icon}</span>
-                    <div>
-                      <div className="contact-info-label">{item.label}</div>
-                      <div className="contact-info-value">{item.value}</div>
-                    </div>
+                    <span className="info-label-clean">{item.label}</span>
+                    <span className="info-value-clean">{item.value}</span>
                   </a>
                 ) : (
-                  <div key={i} className="contact-info-item no-link">
-                    <span className="contact-info-icon">{item.icon}</span>
-                    <div>
-                      <div className="contact-info-label">{item.label}</div>
-                      <div className="contact-info-value">{item.value}</div>
-                    </div>
+                  <div key={i} className="contact-info-link no-hover">
+                    <span className="info-label-clean">{item.label}</span>
+                    <span className="info-value-clean">{item.value}</span>
                   </div>
                 )
               ))}
             </div>
           </div>
 
-          {/* Right: form */}
-          <div className="contact-right fade-in-section">
-            <div className="contact-form-card glass-card">
-              {submitted ? (
-                <div className="form-success">
-                  <div className="success-icon">✓</div>
-                  <h3>Message Sent!</h3>
-                  <p>Thanks for reaching out. I'll get back to you soon!</p>
+          <div className="contact-editorial-right">
+            {submitted ? (
+              <div className="form-success-clean">
+                <div className="success-icon-clean">✓</div>
+                <h3>Message Sent</h3>
+                <p>Thanks for reaching out. I'll get back to you soon.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="contact-form-clean">
+                <div className="form-group-clean">
+                  <label htmlFor="contact-name">Name</label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                    required
+                    className="form-input-clean"
+                  />
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="contact-form">
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label htmlFor="contact-name">Name</label>
-                      <input
-                        id="contact-name"
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Your Name"
-                        required
-                        className="form-input"
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="contact-email">Email</label>
-                      <input
-                        id="contact-email"
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="your@email.com"
-                        required
-                        className="form-input"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="form-group">
-                    <label htmlFor="contact-subject">Subject</label>
-                    <input
-                      id="contact-subject"
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="What's this about?"
-                      required
-                      className="form-input"
-                    />
-                  </div>
+                <div className="form-group-clean">
+                  <label htmlFor="contact-email">Email</label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your@email.com"
+                    required
+                    className="form-input-clean"
+                  />
+                </div>
 
-                  <div className="form-group">
-                    <label htmlFor="contact-message">Message</label>
-                    <textarea
-                      id="contact-message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell me about your project..."
-                      rows={5}
-                      required
-                      className="form-input form-textarea"
-                    />
-                  </div>
+                <div className="form-group-clean">
+                  <label htmlFor="contact-subject">Subject</label>
+                  <input
+                    id="contact-subject"
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="What's this about?"
+                    required
+                    className="form-input-clean"
+                  />
+                </div>
 
-                  {errorVisible && (
-                    <p style={{ color: "#ef4444", fontSize: "0.85rem", marginBottom: "15px" }}>
-                      Oops! Something went wrong. Please check your network or try again later.
-                    </p>
-                  )}
+                <div className="form-group-clean">
+                  <label htmlFor="contact-message">Message</label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell me about your project..."
+                    rows={4}
+                    required
+                    className="form-input-clean"
+                  />
+                </div>
 
-                  <button
-                    type="submit"
-                    className={`btn-primary-custom form-submit-btn ${isSending ? 'loading' : ''}`}
-                    id="contact-submit"
-                    disabled={isSending}
-                  >
-                    {isSending ? (
-                      <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true" style={{ marginRight: '8px' }}></span>
-                    ) : (
-                      <FaPaperPlane size={14} style={{ marginRight: '8px' }} />
-                    )}
-                    {isSending ? "Sending..." : "Send Message"}
-                  </button>
-                </form>
-              )}
-            </div>
+                {errorVisible && (
+                  <p className="form-error-clean">
+                    Something went wrong. Please try again.
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  className="submit-btn-clean"
+                  disabled={isSending}
+                >
+                  {isSending ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

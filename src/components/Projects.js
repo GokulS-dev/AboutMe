@@ -143,103 +143,65 @@ const Projects = () => {
     <section id="projects" className="projects-section" ref={sectionRef}>
       <div className="projects-inner">
         {/* Header */}
-        <div className="fade-in-section projects-header">
+        <div className="fade-in-section projects-header-clean">
           <span className="section-label">02. Work</span>
-          <h2 className="section-title">
-            Featured <span className="gradient-text">Projects</span>
-          </h2>
+          <h2 className="section-title">Selected Projects</h2>
           <div className="section-divider" />
-          <p className="section-subtitle">
-            A curated collection of projects built with passion — from hackathon
-            winners to full-stack applications.
-          </p>
         </div>
 
-        {/* Filter tabs */}
-        <div className="fade-in-section filter-tabs">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`filter-tab ${filter === cat ? "active" : ""}`}
-              onClick={() => setFilter(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Project grid */}
-        <div className="projects-grid fade-in-section">
-          {filtered.map((project, index) => (
-            <div key={index} className="project-card-new glass-card">
-              {/* Image */}
-              <div className="project-img-wrapper">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-img"
-                />
-                <div className="project-img-overlay" />
-
-                {/* Badge */}
+        {/* Project list (editorial style) */}
+        <div className="projects-editorial-list fade-in-section">
+          {projectData.map((project, index) => (
+            <div key={index} className="project-editorial-row">
+              <div className="project-editorial-meta">
+                <span className="project-number">{(index + 1).toString().padStart(2, '0')}</span>
+                <span className="project-category-clean">{project.category}</span>
                 {project.badge && (
-                  <div className="project-badge">
-                    {project.badge.emoji} {project.badge.label}
-                  </div>
+                  <span className="project-badge-clean">{project.badge.label}</span>
                 )}
+              </div>
 
-                {/* Category tag */}
-                <span className="project-category-tag">{project.category}</span>
+              <div className="project-editorial-content">
+                <h3 className="project-title-clean">{project.title}</h3>
+                <p className="project-desc-clean">{project.description}</p>
 
-                {/* Links on hover */}
-                <div className="project-links">
+                <div className="project-tech-clean">
+                  {project.techStack.map((tech, i) => (
+                    <span key={i} className="tech-text">
+                      {tech.name}{i < project.techStack.length - 1 ? " · " : ""}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="project-links-clean">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="project-link-btn"
-                    aria-label="GitHub"
-                    title="View on GitHub"
+                    className="project-link-clean"
                   >
-                    <FaGithub />
+                    View Source <FaGithub style={{ marginLeft: '8px' }} />
                   </a>
                   {project.link && (
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="project-link-btn"
-                      aria-label="Live Demo"
-                      title="Live Demo"
+                      className="project-link-clean"
                     >
-                      <FaExternalLinkAlt />
+                      Live Site <FaExternalLinkAlt style={{ marginLeft: '8px' }} />
                     </a>
                   )}
                 </div>
               </div>
 
-              {/* Body */}
-              <div className="project-body">
-                <div>
-                  <h3 className="project-title-new">{project.title}</h3>
-                  <p className="project-subtitle-new">{project.subtitle}</p>
-                </div>
-                <p className="project-desc">{project.description}</p>
-
-                {/* Tech stack */}
-                <div className="project-tech-row">
-                  {project.techStack.map((tech, i) => (
-                    <div
-                      key={i}
-                      className="tech-pill"
-                      title={tech.name}
-                    >
-                      <span style={{ color: tech.color, display: "flex", alignItems: "center" }}>
-                        {tech.icon}
-                      </span>
-                      <span>{tech.name}</span>
-                    </div>
-                  ))}
+              <div className="project-editorial-image">
+                <div className="image-wrapper-clean">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-img-clean"
+                  />
                 </div>
               </div>
             </div>
