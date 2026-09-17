@@ -112,19 +112,15 @@ const About = () => {
     return (
         <section id="about" className="about-section" ref={sectionRef}>
             <div className="about-inner">
-                {/* Header */}
-                <div className="fade-in-section about-header">
-                    <span className="section-label">01. About</span>
-                    <h2 className="section-title">
-                        <span className="gradient-text"> Who I Am</span>
-                    </h2>
-                    <div className="section-divider" />
-                </div>
+                <div className="about-editorial-grid fade-in-section">
+                    <div className="about-editorial-left">
+                        <span className="section-label">01. About</span>
+                    </div>
 
-                {/* Bio */}
-                <div className="about-top fade-in-section">
-                    <div className="about-bio">
-                        <h3 className="bio-title">Passionate Developer &amp; Builder</h3>
+                    <div className="about-editorial-right">
+                        <h2 className="section-title">Who I Am</h2>
+                        <div className="section-divider" />
+
                         <p className="bio-text">
                             I&apos;m a Computer Science student at Kongu Engineering College with
                             a deep passion for building scalable web and mobile applications.
@@ -137,17 +133,15 @@ const About = () => {
                         </p>
 
                         {/* Stats */}
-                        <div className="about-stats">
+                        <div className="about-stats-clean">
                             <div className="stat-item">
                                 <span className="stat-number">6+</span>
                                 <span className="stat-label">Projects Built</span>
                             </div>
-                            <div className="stat-divider" />
                             <div className="stat-item">
                                 <span className="stat-number">2</span>
                                 <span className="stat-label">Hackathon Wins</span>
                             </div>
-                            <div className="stat-divider" />
                             <div className="stat-item">
                                 <span className="stat-number">3+</span>
                                 <span className="stat-label">Years Coding</span>
@@ -158,83 +152,81 @@ const About = () => {
 
                 {/* Skills grid */}
                 <div className="skills-section fade-in-section">
-                    <h3 className="skills-heading">Tech Stack</h3>
-                    <div className="skills-grid">
-                        {skills.map((category) => (
-                            <div key={category.label} className="skills-category-card glass-card">
-                                <h4 className="skills-category-label">{category.label}</h4>
-                                <div className="skills-icons">
-                                    {category.items.map((item) => (
-                                        <div key={item.name} className="skill-chip" title={item.name}>
-                                            <span
-                                                className="skill-chip-icon"
-                                                style={{ color: item.color }}
-                                            >
-                                                {item.icon}
-                                            </span>
-                                            <span className="skill-chip-name">{item.name}</span>
+                    <div className="about-editorial-grid">
+                        <div className="about-editorial-left">
+                            <h3 className="skills-heading">Tech Stack</h3>
+                        </div>
+                        <div className="about-editorial-right">
+                            <div className="skills-grid">
+                                {skills.map((category) => (
+                                    <div key={category.label} className="skills-category-block">
+                                        <h4 className="skills-category-label">{category.label}</h4>
+                                        <div className="skills-list">
+                                            {category.items.map((item, idx) => (
+                                                <span key={item.name} className="skill-text">
+                                                    {item.name}{idx < category.items.length - 1 ? " · " : ""}
+                                                </span>
+                                            ))}
                                         </div>
-                                    ))}
-                                </div>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
 
                 {/* Experience section */}
-                <div className="experience-section">
-                    <div className="journey-header fade-in-section" style={{ textAlign: "center", marginBottom: "40px" }}>
-                        <h3 className="skills-heading justify-center">Experience</h3>
-                    </div>
-                    <div className="education-timeline-modern">
-                        {experiences.map((exp, index) => (
-                            <div key={index} className={`edu-timeline-item journey-item ${index % 2 === 0 ? "left" : "right"}`}>
-                                <div className="edu-timeline-dot"></div>
-                                <div className="edu-timeline-content glass-card exp-card">
-                                    <div className="edu-timeline-header">
-                                        <div className="edu-year-badge">{exp.duration}</div>
-                                        <div className="edu-score-badge">
-                                            <span className="edu-score-label">Location</span>
-                                            <span className="edu-score-value" style={{ fontSize: "0.8rem" }}>{exp.location}</span>
+                <div className="experience-section fade-in-section">
+                    <div className="about-editorial-grid">
+                        <div className="about-editorial-left">
+                            <h3 className="skills-heading">Experience</h3>
+                        </div>
+                        <div className="about-editorial-right">
+                            <div className="timeline-clean">
+                                {experiences.map((exp, index) => (
+                                    <div key={index} className="timeline-item-clean">
+                                        <div className="timeline-meta-clean">
+                                            <span className="timeline-year">{exp.duration}</span>
+                                            <span className="timeline-location">{exp.location}</span>
+                                        </div>
+                                        <div className="timeline-content-clean">
+                                            <h4 className="timeline-role">{exp.role}</h4>
+                                            <p className="timeline-company">{exp.company}</p>
+                                            <ul className="timeline-details">
+                                                {exp.details.map((detail, idx) => (
+                                                    <li key={idx} className="timeline-detail-item">{detail}</li>
+                                                ))}
+                                            </ul>
                                         </div>
                                     </div>
-                                    <h4 className="edu-degree">{exp.role}</h4>
-                                    <p className="edu-institution">{exp.company}</p>
-                                    <ul className="exp-details">
-                                        {exp.details.map((detail, idx) => (
-                                            <li key={idx} className="exp-detail-item">{detail}</li>
-                                        ))}
-                                    </ul>
-                                    <div className="edu-number">{String(index + 1).padStart(2, "0")}</div>
-                                </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
 
                 {/* Education section */}
-                <div className="education-section" style={{ marginTop: "40px" }}>
-                    <div className="journey-header fade-in-section" style={{ textAlign: "center", marginBottom: "40px" }}>
-                        <h3 className="skills-heading justify-center">Education Journey</h3>
-                    </div>
-                    <div className="education-timeline-modern">
-                        {education.map((edu, index) => (
-                            <div key={index} className={`edu-timeline-item journey-item ${index % 2 === 0 ? "left" : "right"}`}>
-                                <div className="edu-timeline-dot"></div>
-                                <div className="edu-timeline-content glass-card">
-                                    <div className="edu-timeline-header">
-                                        <div className="edu-year-badge">{edu.year}</div>
-                                        <div className="edu-score-badge">
-                                            <span className="edu-score-label">{edu.scoreLabel}</span>
-                                            <span className="edu-score-value">{edu.score}</span>
+                <div className="education-section fade-in-section" style={{ marginTop: "80px" }}>
+                    <div className="about-editorial-grid">
+                        <div className="about-editorial-left">
+                            <h3 className="skills-heading">Education</h3>
+                        </div>
+                        <div className="about-editorial-right">
+                            <div className="timeline-clean">
+                                {education.map((edu, index) => (
+                                    <div key={index} className="timeline-item-clean">
+                                        <div className="timeline-meta-clean">
+                                            <span className="timeline-year">{edu.year}</span>
+                                            <span className="timeline-score">{edu.scoreLabel}: {edu.score}</span>
+                                        </div>
+                                        <div className="timeline-content-clean">
+                                            <h4 className="timeline-role">{edu.degree}</h4>
+                                            <p className="timeline-company">{edu.institution}</p>
                                         </div>
                                     </div>
-                                    <h4 className="edu-degree">{edu.degree}</h4>
-                                    <p className="edu-institution">{edu.institution}</p>
-                                    <div className="edu-number">{String(index + 1).padStart(2, "0")}</div>
-                                </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </div>

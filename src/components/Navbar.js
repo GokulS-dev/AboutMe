@@ -34,9 +34,7 @@ const Navbar = ({ activeSection }) => {
           onClick={() => scrollTo("hero")}
           aria-label="Go to top"
         >
-          <span className="brand-bracket">&lt;</span>
-          <span className="brand-name">G/S</span>
-          <span className="brand-bracket">/&gt;</span>
+          <span className="brand-name">Gokul S.</span>
         </button>
 
         {/* Desktop nav */}
