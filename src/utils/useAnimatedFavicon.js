@@ -2,18 +2,17 @@ import { useEffect } from "react";
 
 /**
  * useAnimatedFavicon
- * Renders an energetic, futuristic animated favicon to the browser tab in real time.
- * - Deep squircle badge with orbiting emerald/cyan particle beam
- * - Sharp high-contrast white "G" typography
- * - Real-time pulsing emerald telemetry status dot
+ * Renders a unique Developer Terminal (CLI) animated favicon in real time.
+ * - Authentically styled IDE / Terminal window with macOS traffic lights (🔴 🟡 🟢)
+ * - Electric cyan command prompt '>' and ultra-bold white 'G'
+ * - Authentic blinking emerald cursor '_' (530ms standard terminal cycle)
+ * - Zero loading spinner resemblance: 100% distinctive Software Engineer identity
  * - Battery-friendly: Pauses when tab is hidden, respects prefers-reduced-motion
  */
 export function useAnimatedFavicon() {
   useEffect(() => {
-    // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Locate or create the dynamic favicon link
     let link = document.querySelector("link#dynamic-favicon");
     if (!link) {
       link = document.querySelector("link[rel*='icon']");
@@ -25,7 +24,6 @@ export function useAnimatedFavicon() {
       link.id = "dynamic-favicon";
     }
 
-    // Offscreen rendering canvas
     const canvas = document.createElement("canvas");
     canvas.width = 64;
     canvas.height = 64;
@@ -34,73 +32,94 @@ export function useAnimatedFavicon() {
 
     let animFrameId = null;
     let lastTime = 0;
-    const targetFpsInterval = 1000 / 22; // Smooth 22 FPS for lightweight browser performance
+    const targetFpsInterval = 1000 / 20; // 20 FPS is ultra-lightweight and smooth for terminal cursor
     let isHidden = document.hidden;
 
     const renderFrame = (t) => {
       ctx.clearRect(0, 0, 64, 64);
 
-      // 1. Dark squircle badge
-      ctx.fillStyle = "#08080c";
+      // 1. Terminal Window Body (Dark Slate)
+      ctx.fillStyle = "#090b12";
       ctx.beginPath();
       if (typeof ctx.roundRect === "function") {
-        ctx.roundRect(2.5, 2.5, 59, 59, 14);
+        ctx.roundRect(2, 2, 60, 60, 14);
       } else {
-        ctx.rect(2.5, 2.5, 59, 59);
+        ctx.rect(2, 2, 60, 60);
       }
       ctx.fill();
 
       // Outer bezel border
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
-      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = "#1e293b";
+      ctx.lineWidth = 1.8;
       ctx.stroke();
 
-      // 2. Rotating orbital arc (Emerald -> Electric Cyan -> Transparent)
-      const angle = (t / 1000) * (Math.PI * 1.4);
-      ctx.save();
-      ctx.translate(32, 32);
-      ctx.rotate(angle);
-
-      const grad = ctx.createLinearGradient(-24, -24, 24, 24);
-      grad.addColorStop(0, "#10b981");
-      grad.addColorStop(0.45, "#38bdf8");
-      grad.addColorStop(1, "rgba(56, 189, 248, 0)");
-
+      // 2. Terminal Title Header Bar
+      ctx.fillStyle = "#121826";
       ctx.beginPath();
-      ctx.arc(0, 0, 22.5, 0, Math.PI * 1.25);
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = 3;
-      ctx.lineCap = "round";
-      ctx.stroke();
-      ctx.restore();
-
-      // 3. Bold geometric letter "G"
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "900 32px -apple-system, BlinkMacSystemFont, 'Outfit', 'Syne', sans-serif";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText("G", 32, 33.5);
-
-      // 4. Live pulsing telemetry beacon (Top-Right)
-      const pulse = (Math.sin(t / 220) + 1) / 2; // 0 to 1
-      // Expanding ripple ring
-      ctx.beginPath();
-      ctx.arc(48.5, 15.5, 2.5 + pulse * 4, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(16, 185, 129, ${0.8 - pulse * 0.75})`;
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
-
-      // Core glowing dot
-      ctx.beginPath();
-      ctx.arc(48.5, 15.5, 2.6, 0, Math.PI * 2);
-      ctx.fillStyle = "#10b981";
+      if (typeof ctx.roundRect === "function") {
+        ctx.roundRect(2, 2, 60, 15, [14, 14, 0, 0]);
+      } else {
+        ctx.rect(2, 2, 60, 15);
+      }
       ctx.fill();
 
-      // Update the favicon link with data URL
+      // Header divider line
+      ctx.strokeStyle = "#1e293b";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(2, 17);
+      ctx.lineTo(62, 17);
+      ctx.stroke();
+
+      // 3. Traffic Light Controls (🔴 🟡 🟢)
+      // Red
+      ctx.fillStyle = "#ef4444";
+      ctx.beginPath();
+      ctx.arc(9.5, 9.5, 2.4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Yellow / Amber
+      ctx.fillStyle = "#f59e0b";
+      ctx.beginPath();
+      ctx.arc(16.5, 9.5, 2.4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Green (Live Status Pulse)
+      const greenPulse = (Math.sin(t / 400) + 1) / 2; // subtle breathing
+      ctx.fillStyle = `rgba(16, 185, 129, ${0.7 + greenPulse * 0.3})`;
+      ctx.beginPath();
+      ctx.arc(23.5, 9.5, 2.4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 4. Command Prompt '>' (Electric Cyan)
+      ctx.font = "900 21px -apple-system, BlinkMacSystemFont, 'Outfit', 'Syne', monospace, sans-serif";
+      ctx.fillStyle = "#38bdf8";
+      ctx.textAlign = "left";
+      ctx.textBaseline = "middle";
+      ctx.fillText(">", 7.5, 41);
+
+      // 5. Center Typography 'G' (Crisp High-Contrast White)
+      ctx.font = "900 28px -apple-system, BlinkMacSystemFont, 'Outfit', 'Syne', sans-serif";
+      ctx.fillStyle = "#ffffff";
+      ctx.fillText("G", 23.5, 41.5);
+
+      // 6. Terminal Cursor '_' (Blinks at natural 530ms terminal rate)
+      const cursorOn = Math.floor(t / 520) % 2 === 0;
+      if (cursorOn) {
+        ctx.fillStyle = "#10b981";
+        ctx.beginPath();
+        if (typeof ctx.roundRect === "function") {
+          ctx.roundRect(46.5, 40, 10, 4.5, 1.5);
+        } else {
+          ctx.rect(46.5, 40, 10, 4.5);
+        }
+        ctx.fill();
+      }
+
+      // Update favicon link
       link.href = canvas.toDataURL("image/png");
     };
 
-    // Draw single frame if reduced motion is requested
     if (prefersReducedMotion) {
       renderFrame(0);
       return;
@@ -109,7 +128,7 @@ export function useAnimatedFavicon() {
     const loop = (currentTime) => {
       animFrameId = requestAnimationFrame(loop);
 
-      if (isHidden) return; // Pause when tab is not visible to preserve 0% CPU
+      if (isHidden) return;
 
       const elapsed = currentTime - lastTime;
       if (elapsed > targetFpsInterval) {
@@ -120,7 +139,6 @@ export function useAnimatedFavicon() {
 
     animFrameId = requestAnimationFrame(loop);
 
-    // Visibility change handler to stop/resume when user switches tabs
     const handleVisibilityChange = () => {
       isHidden = document.hidden;
       if (!isHidden) {
