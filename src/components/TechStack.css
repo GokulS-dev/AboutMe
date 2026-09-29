@@ -1,0 +1,216 @@
+/* ── COMPACT BENTO TECH STACK STYLES ── */
+
+.tech-section {
+  position: relative;
+  padding: 80px 28px 90px;
+  background-color: #08080a;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tech-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Header Compact */
+.tech-header-compact {
+  margin-bottom: 36px;
+}
+
+.tech-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.meta-divider {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.tech-compact-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+
+.tech-compact-sub {
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 620px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── 4-QUADRANT BENTO GRID (2x2 Matrix) ── */
+.tech-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.tech-bento-card {
+  position: relative;
+  background: rgba(14, 14, 20, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 22px 24px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.tech-bento-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cat-accent);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7),
+              0 0 0 1px var(--cat-accent);
+}
+
+/* Quadrant Header */
+.bento-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bento-num-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--cat-accent);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.bento-cat-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.bento-icon-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Skills Compact List */
+.bento-skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.skill-item-row:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateX(3px);
+}
+
+.skill-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill-ico-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.skill-text-ico {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--cat-accent);
+  background: rgba(255, 255, 255, 0.06);
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-name-text {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.skill-role-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.04em;
+}
+
+/* ── RESPONSIVE ADAPTATIONS ── */
+@media (max-width: 768px) {
+  .tech-section {
+    padding: 60px 20px 70px;
+  }
+  .tech-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .tech-bento-card {
+    padding: 18px 18px;
+  }
+  .skill-item-row {
+    padding: 8px 12px;
+  }
+  .skill-name-text {
+    font-size: 0.88rem;
+  }
+  .skill-role-badge {
+    font-size: 0.62rem;
+  }
+}

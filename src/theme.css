@@ -1,0 +1,940 @@
+/* ── EDITORIAL HIGH-CONTRAST LIGHT THEME SYSTEM ── */
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ──────────────────────────────────────────────────────────── */
+/* LIGHT THEME VARIABLES & OVERRIDES                           */
+/* ──────────────────────────────────────────────────────────── */
+
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --accent-green: #059669;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+[data-theme="light"] ::selection {
+  background: rgba(16, 185, 129, 0.22);
+  color: #0f172a;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+[data-theme="light"] .app-wrapper {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Common Section Headers */
+[data-theme="light"] .section-headline {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .section-sub-strip {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .section-label-text {
+  color: #64748b !important;
+}
+
+/* ── NAVBAR (Header) ── */
+[data-theme="light"] .site-header {
+  background: rgba(248, 250, 252, 0.86);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+[data-theme="light"] .site-header.header-scrolled {
+  background: rgba(248, 250, 252, 0.96);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+[data-theme="light"] .brand-title {
+  color: #0f172a;
+}
+
+[data-theme="light"] .brand-badge {
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="light"] .nav-link {
+  color: #475569;
+}
+
+[data-theme="light"] .nav-link:hover {
+  color: #0f172a;
+}
+
+[data-theme="light"] .nav-link.active {
+  color: #0f172a;
+}
+
+[data-theme="light"] .active-pill {
+  background-color: #0f172a;
+}
+
+[data-theme="light"] .resume-nav-btn {
+  background: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+}
+
+[data-theme="light"] .resume-nav-btn:hover {
+  background: #1e293b;
+}
+
+[data-theme="light"] .mobile-toggle {
+  color: #0f172a;
+}
+
+[data-theme="light"] .mobile-drawer {
+  background: rgba(248, 250, 252, 0.98);
+  border-bottom-color: #e2e8f0;
+}
+
+[data-theme="light"] .mobile-nav-link {
+  color: #334155;
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .mobile-nav-link.active {
+  color: #059669;
+}
+
+[data-theme="light"] .mobile-theme-row {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .mobile-theme-label {
+  color: #475569;
+}
+
+[data-theme="light"] .mobile-resume-btn {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+/* ── HERO SECTION ── */
+[data-theme="light"] .hero-section {
+  background-color: #f8fafc;
+}
+
+[data-theme="light"] .hero-ambient-mesh {
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.06) 0%,
+    rgba(56, 189, 248, 0.04) 40%,
+    transparent 70%
+  );
+}
+
+[data-theme="light"] .hero-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .hero-description {
+  color: #1e293b !important;
+  font-weight: 400;
+}
+
+[data-theme="light"] .hero-status-tag {
+  background: rgba(16, 185, 129, 0.09);
+  border-color: rgba(16, 185, 129, 0.28);
+}
+
+[data-theme="light"] .status-text {
+  color: #065f46;
+  font-weight: 600;
+}
+
+[data-theme="light"] .tech-badge {
+  color: #334155 !important;
+  font-weight: 500;
+}
+
+[data-theme="light"] .tech-badge:hover {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .tech-separator {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] .btn-primary-hero {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.16);
+}
+
+[data-theme="light"] .btn-primary-hero:hover {
+  background: #1e293b;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+}
+
+[data-theme="light"] .hero-social-link {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .hero-social-link:hover {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .hero-frame {
+  border-color: #e2e8f0;
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .hero-frame-gradient {
+  background: linear-gradient(180deg, transparent 65%, rgba(248, 250, 252, 0.8) 100%) !important;
+}
+
+[data-theme="light"] .hero-floating-card {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid rgba(0, 0, 0, 0.09) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .card-header-mono {
+  color: #0f172a !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .mono-key {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .mono-val {
+  color: #0f172a !important;
+  font-weight: 600;
+}
+
+[data-theme="light"] .mono-val.highlight {
+  color: #059669 !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .scroll-cue-btn {
+  color: #64748b !important;
+}
+
+/* ── EXPERIENCE HIGHWAY ── */
+[data-theme="light"] .header-meta-tag,
+[data-theme="light"] .edu-road-meta-tag {
+  background: rgba(16, 185, 129, 0.1) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #047857 !important;
+}
+
+[data-theme="light"] .header-meta-tag .route-icon,
+[data-theme="light"] .edu-road-meta-tag .edu-route-icon {
+  color: #047857 !important;
+}
+
+[data-theme="light"] .header-meta-tag .meta-text,
+[data-theme="light"] .edu-road-meta-tag .edu-meta-text {
+  color: #047857 !important;
+}
+
+[data-theme="light"] .header-meta-tag .meta-sep,
+[data-theme="light"] .edu-road-meta-tag .edu-meta-sep {
+  color: rgba(15, 23, 42, 0.25) !important;
+}
+
+[data-theme="light"] .header-meta-tag .meta-sub,
+[data-theme="light"] .edu-road-meta-tag .edu-meta-sub {
+  color: rgba(15, 23, 42, 0.55) !important;
+}
+
+[data-theme="light"] .experience-section {
+  background-color: #f1f5f9;
+  border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .experience-main-heading {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .experience-lead-text {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .highway-asphalt-track {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .highway-sign-board {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .highway-milestone-sign.sign-active .highway-sign-board {
+  background: #ffffff !important;
+  border-color: var(--road-accent) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 16px var(--road-glow) !important;
+}
+
+[data-theme="light"] .sign-company {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .highway-road-stem {
+  background: rgba(0, 0, 0, 0.14) !important;
+}
+
+/* All Experience Job Cards (Including 3rd Present Card & Spotlight) */
+[data-theme="light"] .highway-job-card,
+[data-theme="light"] .highway-job-card.card-destination-summit,
+[data-theme="light"] .highway-job-card.card-spotlight {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .highway-job-card:hover,
+[data-theme="light"] .highway-job-card.card-spotlight {
+  border-color: var(--card-accent) !important;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.12), 0 0 0 1px var(--card-accent) !important;
+}
+
+[data-theme="light"] .card-highway-header {
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+
+[data-theme="light"] .card-route-capsule {
+  background: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .card-period-tag {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .card-company-label {
+  color: var(--card-accent) !important;
+}
+
+[data-theme="light"] .card-designation-title {
+  color: #0f172a !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .card-location-row {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .type-badge {
+  background: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+/* Present Role Status Badge in Light Mode */
+[data-theme="light"] .working-here-pill {
+  background: #ffffff !important;
+  border: 1.5px solid #10b981 !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25) !important;
+}
+
+[data-theme="light"] .speech-text {
+  color: #065f46 !important;
+  font-weight: 700;
+}
+
+/* ── PROJECTS STACK CARDS ── */
+[data-theme="light"] .projects-section {
+  background-color: #f8fafc;
+  border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .collection-meta-tag {
+  color: #d97706 !important;
+  font-weight: 600;
+}
+
+[data-theme="light"] .collection-main-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .collection-sub-text {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .collection-counter {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .coll-arrow-btn {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .coll-arrow-btn:hover {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+}
+
+/* Collapsed Stack Panels */
+[data-theme="light"] .deck-card-panel.card-collapsed {
+  background: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  border-right: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .deck-card-panel.card-collapsed.deck-leftmost {
+  border-left: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .deck-card-panel.card-collapsed.deck-rightmost {
+  border-right: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .deck-card-panel.card-collapsed.card-adjacent-left {
+  border-right: 1px solid #cbd5e1 !important;
+}
+
+[data-theme="light"] .deck-card-panel.card-collapsed .card-scrim-gradient {
+  background: rgba(255, 255, 255, 0.94) !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] .collapsed-vertical-text span {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .deck-card-panel.card-collapsed:hover .collapsed-vertical-text span {
+  color: #059669 !important;
+}
+
+[data-theme="light"] .collapsed-top-pill {
+  border: 1px solid #cbd5e1 !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .collapsed-bottom-circle {
+  border: 1px solid #cbd5e1 !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Expanded Card Panel */
+[data-theme="light"] .deck-card-panel.card-expanded {
+  border: 2px solid #0f172a !important;
+  box-shadow: 0 24px 60px -10px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* ── TECHNICAL ARSENAL (Tech Stack Bento) ── */
+[data-theme="light"] .tech-section {
+  background-color: #f1f5f9;
+  border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .tech-compact-heading {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .tech-compact-sub {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .tech-bento-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .tech-bento-card:hover {
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--cat-accent) !important;
+}
+
+[data-theme="light"] .bento-cat-title {
+  color: #0f172a !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .bento-num-tag {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: var(--cat-accent) !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .bento-icon-badge {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .bento-card-header {
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+
+/* Skills Rows Inside Bento */
+[data-theme="light"] .skill-item-row {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+[data-theme="light"] .skill-item-row:hover {
+  background: #ffffff !important;
+  border-color: var(--cat-accent) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .skill-name-text {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .skill-role-badge {
+  color: #64748b !important;
+  font-weight: 500 !important;
+}
+
+[data-theme="light"] .skill-text-ico {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+/* ── ABOUT & QUICK FACTS ── */
+[data-theme="light"] .about-section {
+  background-color: #f8fafc;
+  border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .about-bio-lead {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .about-bio-p {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .metric-box {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .metric-val {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .metric-lbl {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .about-quick-facts-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .facts-card-header {
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+
+[data-theme="light"] .facts-header-tag {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .fact-label {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .fact-val {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .fact-val.highlight-green {
+  color: #059669 !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .fact-val.tech-inline-tags {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .fact-row-item {
+  border-bottom: 1px solid #f8fafc !important;
+}
+
+[data-theme="light"] .facts-card-footer {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+}
+
+[data-theme="light"] .footer-status-text {
+  color: #065f46 !important;
+  font-weight: 700 !important;
+}
+
+/* ── ACADEMIC HIGHWAY (Education Road) ── */
+[data-theme="light"] .about-education-road {
+  border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .edu-road-heading {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .edu-road-lead {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .edu-asphalt-track {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .edu-sign-board {
+  background: #ffffff !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .edu-milestone-sign.sign-active .edu-sign-board {
+  background: #ffffff !important;
+  border-color: var(--edu-accent) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 16px var(--edu-glow) !important;
+}
+
+[data-theme="light"] .edu-sign-level {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .edu-road-stem {
+  background: rgba(0, 0, 0, 0.14) !important;
+}
+
+[data-theme="light"] .edu-milestone-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .edu-milestone-card:hover,
+[data-theme="light"] .edu-milestone-card.card-spotlight {
+  border-color: var(--card-accent) !important;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.12), 0 0 0 1px var(--card-accent) !important;
+}
+
+[data-theme="light"] .edu-milestone-card.card-degree-summit {
+  background: #ffffff !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+}
+
+[data-theme="light"] .edu-card-top-bar {
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+
+[data-theme="light"] .edu-route-capsule {
+  background: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .edu-period-pill {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .edu-card-degree-title {
+  color: #0f172a !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .edu-institution-name {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .edu-card-note {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .edu-card-footer {
+  border-top: 1px solid #f1f5f9 !important;
+}
+
+[data-theme="light"] .edu-status-pill {
+  background: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .edu-score-pill {
+  background: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .card-degree-summit .edu-score-pill {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #047857 !important;
+}
+
+[data-theme="light"] .edu-loc-text {
+  color: #64748b !important;
+}
+
+/* ── CONTACT SECTION (Fixed Inputs & Text) ── */
+[data-theme="light"] .contact-section {
+  background-color: #f1f5f9;
+  border-top-color: #e2e8f0;
+}
+
+[data-theme="light"] .email-display-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .email-card-label {
+  color: #059669 !important;
+  font-weight: 600;
+}
+
+[data-theme="light"] .email-address-link {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .copy-email-btn {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .copy-email-btn:hover {
+  background: #e2e8f0 !important;
+}
+
+[data-theme="light"] .compose-email-btn {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #0f172a !important;
+}
+
+[data-theme="light"] .compose-email-btn:hover {
+  background: #1e293b !important;
+}
+
+[data-theme="light"] .channels-title {
+  color: #64748b !important;
+  font-weight: 600;
+}
+
+[data-theme="light"] .channel-link-item {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .channel-link-item:hover {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme="light"] .channel-name {
+  color: #0f172a !important;
+  font-weight: 600;
+}
+
+[data-theme="light"] .channel-handle {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .channel-icon-wrap {
+  background: #f1f5f9 !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .channel-arrow {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .contact-form-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .form-card-header h3 {
+  color: #0f172a !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .form-card-header p {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .form-label {
+  color: #334155 !important;
+  font-weight: 600;
+}
+
+/* Light Theme Inputs: Clean white/slate backgrounds with crisp borders */
+[data-theme="light"] .form-input,
+[data-theme="light"] .form-textarea {
+  background: #f8fafc !important;
+  border: 1.5px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .form-input::placeholder,
+[data-theme="light"] .form-textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+[data-theme="light"] .form-input:focus,
+[data-theme="light"] .form-textarea:focus {
+  background: #ffffff !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+}
+
+[data-theme="light"] .form-submit-btn {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border: 1px solid #0f172a !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2) !important;
+}
+
+[data-theme="light"] .form-submit-btn:hover {
+  background: #1e293b !important;
+  transform: translateY(-1px);
+}
+
+/* ── FOOTER ── */
+[data-theme="light"] .site-footer {
+  background-color: #f1f5f9;
+  border-top-color: #e2e8f0;
+  color: #334155;
+}
+
+[data-theme="light"] .footer-logo {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .footer-status-indicator {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+[data-theme="light"] .footer-status-label {
+  color: #065f46;
+  font-weight: 600;
+}
+
+[data-theme="light"] .footer-top-btn {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0f172a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .footer-top-btn:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+[data-theme="light"] .footer-tagline {
+  color: #475569;
+}
+
+[data-theme="light"] .footer-social-a {
+  color: #475569;
+}
+
+[data-theme="light"] .footer-social-a:hover {
+  color: #0f172a;
+}
+
+[data-theme="light"] .footer-copy {
+  color: #64748b;
+}
+
+/* ── MOBILE PHONE BOTTOM DOCK ── */
+[data-theme="light"] .mobile-dock-container {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12),
+              0 0 0 1px rgba(0, 0, 0, 0.05),
+              0 4px 14px rgba(16, 185, 129, 0.15);
+}
+
+[data-theme="light"] .dock-tab-item {
+  color: #64748b;
+}
+
+[data-theme="light"] .dock-tab-item.dock-active {
+  color: #059669;
+}
+
+[data-theme="light"] .dock-tab-item.dock-active .dock-tab-label {
+  color: #0f172a;
+}
+
+/* ── RESUME MODAL ── */
+[data-theme="light"] .resume-dialog {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .resume-header {
+  background: #f8fafc;
+  border-bottom-color: #e2e8f0;
+}
+
+[data-theme="light"] .resume-filename {
+  color: #0f172a;
+}
+
+[data-theme="light"] .modal-action-btn {
+  background: #ffffff;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+[data-theme="light"] .modal-action-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}

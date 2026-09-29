@@ -1,143 +1,152 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
-import { FaLinkedin, FaGithub, FaCode, FaDownload, FaArrowDown, FaTimes, FaEye } from "react-icons/fa";
-import profileImg from "../assets/m3.jpeg";
-import cv from "../assets/Gokul_BE .pdf";
+import React from "react";
+import { FaGithub, FaLinkedin, FaCode, FaArrowDown } from "react-icons/fa";
+import profilePhoto from "../assets/IMG_5165.jpeg";
 import "./Hero.css";
 
+const heroTech = ["Java", "JavaScript", "React", "Node.js", "Express", "SQL Server"];
+
 const Hero = () => {
-    const [cvModalOpen, setCvModalOpen] = useState(false);
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const navOffset = 80;
+      const elPos = el.getBoundingClientRect().top;
+      const offsetPos = elPos + window.pageYOffset - navOffset;
+      window.scrollTo({ top: offsetPos, behavior: "smooth" });
+    }
+  };
 
-    // Lock body scroll when modal is open
-    useEffect(() => {
-        document.body.style.overflow = cvModalOpen ? "hidden" : "";
-        return () => { document.body.style.overflow = ""; };
-    }, [cvModalOpen]);
+  return (
+    <section id="hero" className="hero-section">
+      <div className="hero-ambient-mesh" />
 
-    const scrollToAbout = () => {
-        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-    };
+      <div className="hero-inner">
+        {/* Left Column: Editorial Headline & Actions */}
+        <div className="hero-content">
+          {/* Engineering status tag */}
+          <div className="hero-status-tag">
+            <span className="status-dot-pulse" />
+            <span className="status-text">Available for SDE & Full Stack Roles</span>
+          </div>
 
-    return (
-        <>
-            <section id="hero" className="hero-section">
-                <div className="hero-inner">
-                    {/* Left content */}
-                    <div className="hero-content">
-                        <div className="hero-badge">
-                            FULL-STACK DEVELOPER · DIGITAL BUILDER
-                        </div>
+          {/* Primary Role Heading */}
+          <h1 className="hero-title">
+            Software Development Engineer
+          </h1>
 
-                        <h1 className="hero-title">
-                            Gokul S.
-                        </h1>
+          {/* Core Elevator Pitch */}
+          <p className="hero-description">
+            I build reliable web applications, APIs and database-driven systems.
+          </p>
 
-                        <p className="hero-desc">
-                            I build digital products, experiences and systems that turn ideas into useful technology. Passionate about writing meaningful, maintainable code.
-                        </p>
+          {/* Key Tech Badges */}
+          <div className="hero-tech-strip">
+            {heroTech.map((tech, i) => (
+              <span key={tech} className="hero-tech-item">
+                <span className="tech-badge">{tech}</span>
+                {i < heroTech.length - 1 && <span className="tech-separator">·</span>}
+              </span>
+            ))}
+          </div>
 
-                        <div className="hero-actions">
-                            <button
-                                className="btn-primary-custom"
-                                onClick={() => setCvModalOpen(true)}
-                                aria-label="Preview CV"
-                            >
-                                <FaEye size={14} />
-                                View CV
-                            </button>
-                            <button className="btn-secondary-custom" onClick={scrollToAbout}>
-                                Explore More
-                            </button>
-                        </div>
+          {/* Call to Actions */}
+          <div className="hero-actions">
+            <button
+              className="btn-primary-hero"
+              onClick={() => scrollToSection("experience")}
+              aria-label="Explore experience and work"
+            >
+              <span>Explore my work</span>
+              <FaArrowDown size={12} className="btn-icon" />
+            </button>
+          </div>
 
-                        <div className="hero-socials">
-                            <a
-                                href="https://www.linkedin.com/in/gokul-s-b9a392259/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="social-link"
-                                aria-label="LinkedIn"
-                                title="LinkedIn"
-                            >
-                                <FaLinkedin />
-                            </a>
-                            <a
-                                href="https://github.com/GokulS-dev"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="social-link"
-                                aria-label="GitHub"
-                                title="GitHub"
-                            >
-                                <FaGithub />
-                            </a>
-                            <a
-                                href="https://leetcode.com/u/S_Gokul19/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="social-link leetcode"
-                                aria-label="LeetCode"
-                                title="LeetCode"
-                            >
-                                <FaCode />
-                            </a>
-                        </div>
-                    </div>
+          {/* Social Proof & Profiles */}
+          <div className="hero-socials">
+            <a
+              href="https://github.com/GokulS-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-social-link"
+              aria-label="GitHub Profile"
+            >
+              <FaGithub size={16} />
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/gokul-s-b9a392259/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-social-link"
+              aria-label="LinkedIn Profile"
+            >
+              <FaLinkedin size={16} />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://leetcode.com/u/S_Gokul19/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-social-link"
+              aria-label="LeetCode Profile"
+            >
+              <FaCode size={16} />
+              <span>LeetCode</span>
+            </a>
+          </div>
+        </div>
 
-                    {/* Right: profile image */}
-                    <div className="hero-image-wrapper">
-                        <img src={profileImg} alt="Gokul S" className="hero-profile-img" />
-                    </div>
+        {/* Right Column: Visual Portrait & Engineering Card */}
+        <div className="hero-visual">
+          <div className="hero-frame">
+            <div className="hero-frame-inner">
+              <img
+                src={profilePhoto}
+                alt="Gokul S — Software Development Engineer"
+                className="hero-portrait"
+                loading="eager"
+              />
+              <div className="hero-frame-gradient" />
+            </div>
+
+            {/* Floating Telemetry Badge */}
+            <div className="hero-floating-card">
+              <div className="card-header-mono">
+                <span className="mono-dot" />
+                <span>GOKUL S // DEV-NODE</span>
+              </div>
+              <div className="card-body-mono">
+                <div className="mono-row">
+                  <span className="mono-key">Role:</span>
+                  <span className="mono-val">Full Stack & Systems</span>
                 </div>
+                <div className="mono-row">
+                  <span className="mono-key">Location:</span>
+                  <span className="mono-val">Tamil Nadu, India</span>
+                </div>
+                <div className="mono-row">
+                  <span className="mono-key">Current:</span>
+                  <span className="mono-val highlight">JAC MediaLand</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                {/* Scroll cue */}
-                <button className="scroll-cue" onClick={scrollToAbout} aria-label="Scroll down">
-                    <FaArrowDown />
-                </button>
-            </section>
-
-            {/* CV Preview Modal — portal renders at document.body, above all stacking contexts */}
-            {cvModalOpen && ReactDOM.createPortal(
-                <div className="cv-modal-overlay" onClick={() => setCvModalOpen(false)}>
-                    <div className="cv-modal" onClick={(e) => e.stopPropagation()}>
-                        <div className="cv-modal-header">
-                            <div className="cv-modal-title">
-                                <FaEye size={16} />
-                                <span>Resume Preview</span>
-                            </div>
-                            <div className="cv-modal-actions">
-                                <a
-                                    href={cv}
-                                    download="Gokul_BE.pdf"
-                                    className="cv-download-btn"
-                                    aria-label="Download CV"
-                                >
-                                    <FaDownload size={13} />
-                                    Download
-                                </a>
-                                <button
-                                    className="cv-close-btn"
-                                    onClick={() => setCvModalOpen(false)}
-                                    aria-label="Close preview"
-                                >
-                                    <FaTimes size={16} />
-                                </button>
-                            </div>
-                        </div>
-                        <div className="cv-modal-body">
-                            <iframe
-                                src={cv}
-                                title="CV Preview"
-                                className="cv-iframe"
-                                frameBorder="0"
-                            />
-                        </div>
-                    </div>
-                </div>,
-                document.body
-            )}
-        </>
-    );
+      {/* Subtle Scroll Cue */}
+      <div className="hero-scroll-indicator">
+        <button
+          className="scroll-cue-btn"
+          onClick={() => scrollToSection("experience")}
+          aria-label="Scroll down to experience"
+        >
+          <span className="cue-label">SCROLL</span>
+          <span className="cue-line" />
+        </button>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

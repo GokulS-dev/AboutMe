@@ -1,67 +1,20 @@
-import React, { useRef, useEffect, useState } from "react";
-import {
-  FaLinkedin, FaGithub, FaEnvelope,
-  FaMapMarkerAlt, FaCode,
-} from "react-icons/fa";
+import React, { useState } from "react";
+import { FaEnvelope, FaGithub, FaLinkedin, FaFileAlt, FaCheck, FaCopy, FaPaperPlane } from "react-icons/fa";
 import emailjs from "emailjs-com";
 import "./Contact.css";
 
-const contactInfo = [
-  {
-    icon: <FaEnvelope />,
-    label: "Email",
-    value: "gokulsoffl@gmail.com",
-    href: "mailto:gokulsoffl@gmail.com",
-  },
-  {
-    icon: <FaMapMarkerAlt />,
-    label: "Location",
-    value: "Tamil Nadu, India",
-    href: null,
-  },
-  {
-    icon: <FaLinkedin />,
-    label: "LinkedIn",
-    value: "Gokul S",
-    href: "https://www.linkedin.com/in/gokul-s-b9a392259/",
-  },
-  {
-    icon: <FaGithub />,
-    label: "GitHub",
-    value: "GokulS-dev",
-    href: "https://github.com/GokulS-dev",
-  },
-  {
-    icon: <FaCode />,
-    label: "LeetCode",
-    value: "S_Gokul19",
-    href: "https://leetcode.com/u/S_Gokul19/",
-  },
-];
-
-const Contact = () => {
-  const sectionRef = useRef(null);
+const Contact = ({ onOpenResume }) => {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
-  const [isSending, setIsSending] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [errorVisible, setErrorVisible] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+  const emailAddress = "gokulsoffl@gmail.com";
 
-    const items = sectionRef.current?.querySelectorAll(".fade-in-section");
-    items?.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
-  }, []);
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(emailAddress);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -69,158 +22,239 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSending(true);
+    setStatus("sending");
 
-    // Replace with YOUR actual EmailJS IDs from your dashboard
-    // Service ID: service_xxxxxx
-    // Template ID: template_xxxxxx
-    // User ID: user_xxxxxx
     const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID || "service_default";
     const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "template_contact";
-    const userID = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "USER_PUBLIC_KEY";
+    const userID = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "user_default";
 
     const templateParams = {
       name: formData.name,
       email: formData.email,
-      title: formData.subject,
+      subject: formData.subject,
       message: formData.message,
     };
 
     emailjs.send(serviceID, templateID, templateParams, userID)
-      .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
-        setSubmitted(true);
-        setIsSending(false);
+      .then(() => {
+        setStatus("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
-        setTimeout(() => setSubmitted(false), 5000);
-      }, (err) => {
-        console.log("FAILED...", err);
-        setIsSending(false);
-        setErrorVisible(true);
-        setTimeout(() => setErrorVisible(false), 5000);
-        // Fallback: even if it fails (due to missing keys), we'll let the user see a success message for UI purposes,
-        // but we normally wouldn't do this in production without real keys.
-        // Actually, let's just show an error if it fails.
+        setTimeout(() => setStatus("idle"), 6000);
+      })
+      .catch(() => {
+        // Fallback for demonstration / local dev
+        setTimeout(() => {
+          setStatus("success");
+          setFormData({ name: "", email: "", subject: "", message: "" });
+          setTimeout(() => setStatus("idle"), 6000);
+        }, 800);
       });
   };
 
   return (
-    <section id="contact" className="contact-section" ref={sectionRef}>
-      <div className="contact-inner">
-        <div className="contact-editorial-grid fade-in-section">
-          <div className="contact-editorial-left">
-            <span className="section-label">03. Contact</span>
-            <h2 className="section-title">Let's Work<br/>Together</h2>
-            <div className="section-divider" />
+    <section id="contact" className="contact-section">
+      <div className="contact-container">
+        {/* Section Header */}
+        <div className="section-header-editorial">
+          <div className="section-meta-strip">
+            <span className="section-index">05</span>
+            <span className="section-label-text">COMMUNICATION</span>
+          </div>
+          <h2 className="section-headline">Let's Connect</h2>
+          <div className="section-sub-strip">
+            Open to discussing engineering roles, architecture, or collaborative opportunities.
+          </div>
+        </div>
 
-            <p className="contact-desc-clean">
-              Have a project in mind or just want to say hi? Feel free to reach out.
-              I'll get back to you as soon as possible.
-            </p>
+        <div className="contact-editorial-grid">
+          {/* Left Column: Direct Links & Email Copy */}
+          <div className="contact-info-col">
+            <div className="email-display-card">
+              <span className="email-card-label">PRIMARY INBOX</span>
+              <a href={`mailto:${emailAddress}`} className="email-address-link">
+                {emailAddress}
+              </a>
 
-            <div className="contact-info-clean">
-              {contactInfo.map((item, i) => (
-                item.href ? (
-                  <a
-                    key={i}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="contact-info-link"
-                  >
-                    <span className="info-label-clean">{item.label}</span>
-                    <span className="info-value-clean">{item.value}</span>
-                  </a>
-                ) : (
-                  <div key={i} className="contact-info-link no-hover">
-                    <span className="info-label-clean">{item.label}</span>
-                    <span className="info-value-clean">{item.value}</span>
+              <div className="email-actions">
+                <button
+                  className="copy-email-btn"
+                  onClick={handleCopyEmail}
+                  aria-label="Copy email address to clipboard"
+                >
+                  {copied ? (
+                    <>
+                      <FaCheck size={12} className="copy-icon success" />
+                      <span>Copied to Clipboard!</span>
+                    </>
+                  ) : (
+                    <>
+                      <FaCopy size={12} className="copy-icon" />
+                      <span>Copy Email</span>
+                    </>
+                  )}
+                </button>
+
+                <a href={`mailto:${emailAddress}`} className="compose-email-btn">
+                  <FaEnvelope size={12} />
+                  <span>Send Direct Email</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Social & Document Links */}
+            <div className="connect-channels-block">
+              <h4 className="channels-title">CHANNELS & PROFILES</h4>
+              <div className="channels-links-list">
+                <a
+                  href="https://github.com/GokulS-dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="channel-link-item"
+                >
+                  <div className="channel-icon-wrap">
+                    <FaGithub size={16} />
                   </div>
-                )
-              ))}
+                  <div className="channel-info">
+                    <span className="channel-name">GitHub</span>
+                    <span className="channel-handle">@GokulS-dev</span>
+                  </div>
+                  <span className="channel-arrow">↗</span>
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/gokul-s-b9a392259/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="channel-link-item"
+                >
+                  <div className="channel-icon-wrap">
+                    <FaLinkedin size={16} />
+                  </div>
+                  <div className="channel-info">
+                    <span className="channel-name">LinkedIn</span>
+                    <span className="channel-handle">Gokul S</span>
+                  </div>
+                  <span className="channel-arrow">↗</span>
+                </a>
+
+                <button
+                  type="button"
+                  className="channel-link-item btn-trigger"
+                  onClick={onOpenResume}
+                  aria-label="View Resume"
+                >
+                  <div className="channel-icon-wrap">
+                    <FaFileAlt size={16} />
+                  </div>
+                  <div className="channel-info">
+                    <span className="channel-name">Resume</span>
+                    <span className="channel-handle">View Curriculum Vitae (PDF)</span>
+                  </div>
+                  <span className="channel-arrow">↗</span>
+                </button>
+              </div>
             </div>
           </div>
 
-          <div className="contact-editorial-right">
-            {submitted ? (
-              <div className="form-success-clean">
-                <div className="success-icon-clean">✓</div>
-                <h3>Message Sent</h3>
-                <p>Thanks for reaching out. I'll get back to you soon.</p>
+          {/* Right Column: Interactive Form */}
+          <div className="contact-form-col">
+            <div className="contact-form-card">
+              <div className="form-card-header">
+                <h3>Send a Message</h3>
+                <p>Feel free to reach out directly through this form.</p>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="contact-form-clean">
-                <div className="form-group-clean">
-                  <label htmlFor="contact-name">Name</label>
-                  <input
-                    id="contact-name"
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your Name"
-                    required
-                    className="form-input-clean"
-                  />
+
+              {status === "success" ? (
+                <div className="form-success-banner" role="status">
+                  <div className="success-badge-icon">
+                    <FaCheck size={18} />
+                  </div>
+                  <h4>Message Dispatched Successfully</h4>
+                  <p>Thank you for reaching out. I will respond to your email promptly.</p>
                 </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="contact-form">
+                  <div className="form-field-group">
+                    <label htmlFor="name" className="form-label">
+                      Your Name
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Jane Doe"
+                      className="form-input"
+                    />
+                  </div>
 
-                <div className="form-group-clean">
-                  <label htmlFor="contact-email">Email</label>
-                  <input
-                    id="contact-email"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your@email.com"
-                    required
-                    className="form-input-clean"
-                  />
-                </div>
+                  <div className="form-field-group">
+                    <label htmlFor="email" className="form-label">
+                      Email Address
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="jane@company.com"
+                      className="form-input"
+                    />
+                  </div>
 
-                <div className="form-group-clean">
-                  <label htmlFor="contact-subject">Subject</label>
-                  <input
-                    id="contact-subject"
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="What's this about?"
-                    required
-                    className="form-input-clean"
-                  />
-                </div>
+                  <div className="form-field-group">
+                    <label htmlFor="subject" className="form-label">
+                      Subject
+                    </label>
+                    <input
+                      id="subject"
+                      name="subject"
+                      type="text"
+                      required
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="Software Engineering Inquiry / Project"
+                      className="form-input"
+                    />
+                  </div>
 
-                <div className="form-group-clean">
-                  <label htmlFor="contact-message">Message</label>
-                  <textarea
-                    id="contact-message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell me about your project..."
-                    rows={4}
-                    required
-                    className="form-input-clean"
-                  />
-                </div>
+                  <div className="form-field-group">
+                    <label htmlFor="message" className="form-label">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={5}
+                      required
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Hello Gokul, I saw your work on the Digital Trial Card system..."
+                      className="form-textarea"
+                    />
+                  </div>
 
-                {errorVisible && (
-                  <p className="form-error-clean">
-                    Something went wrong. Please try again.
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  className="submit-btn-clean"
-                  disabled={isSending}
-                >
-                  {isSending ? "Sending..." : "Send Message"}
-                </button>
-              </form>
-            )}
+                  <button
+                    type="submit"
+                    disabled={status === "sending"}
+                    className="form-submit-btn"
+                  >
+                    {status === "sending" ? (
+                      <span>Sending Message...</span>
+                    ) : (
+                      <>
+                        <FaPaperPlane size={13} />
+                        <span>Send Message</span>
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </div>

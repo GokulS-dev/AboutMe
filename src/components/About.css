@@ -1,265 +1,906 @@
+/* About Section Styles */
+
 .about-section {
-    padding: 120px 0;
-    background-color: var(--color-bg);
+  position: relative;
+  padding: 100px 28px;
+  background-color: #08080a;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.about-inner {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 40px;
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Editorial Grid Layout */
+/* Editorial Grid */
 .about-editorial-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 80px;
-    margin-bottom: 80px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
 }
 
-.about-editorial-left {
-    position: relative;
+/* Bio Column */
+.about-bio-column {
+  display: flex;
+  flex-direction: column;
 }
 
-.about-editorial-right {
-    position: relative;
+.about-bio-lead {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0 0 24px;
 }
 
-.section-label {
-    font-family: var(--font-primary);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
+.about-bio-p {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 20px;
 }
 
-.section-title {
-    font-family: var(--font-secondary);
-    font-size: 3.5rem;
-    font-weight: 400;
-    color: var(--color-text);
-    line-height: 1.1;
-    margin-bottom: 24px;
+/* Metrics Grid */
+.about-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 24px;
 }
 
-.section-divider {
-    width: 60px;
-    height: 1px;
-    background-color: var(--color-border);
-    margin: 32px 0;
+.metric-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.bio-text {
-    font-family: var(--font-primary);
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    margin-bottom: 24px;
-    font-weight: 300;
-    max-width: 600px;
+.metric-val {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
 }
 
-/* Stats */
-.about-stats-clean {
-    display: flex;
-    gap: 64px;
-    margin-top: 48px;
-    padding-top: 32px;
-    border-top: 1px solid var(--color-border);
+.metric-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
 }
 
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+/* Aside Column & Quick Facts Card (Replacing Image in Exact Footprint) */
+.about-aside-column {
+  display: flex;
+  flex-direction: column;
 }
 
-.stat-number {
-    font-family: var(--font-secondary);
-    font-size: 3rem;
-    color: var(--color-text);
-    line-height: 1;
+.about-quick-facts-card {
+  position: relative;
+  aspect-ratio: 4 / 3.8;
+  min-height: 430px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(165deg, rgba(18, 18, 24, 0.9) 0%, rgba(10, 10, 14, 0.98) 100%);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(16px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.stat-label {
-    font-family: var(--font-primary);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
+.about-quick-facts-card:hover {
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 20px 45px -12px rgba(16, 185, 129, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-/* Skills */
-.skills-heading {
-    font-family: var(--font-primary);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
-    margin-top: 12px;
+/* Card Terminal Header */
+.facts-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+.terminal-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.skills-category-block {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.tdot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
 }
 
-.skills-category-label {
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--color-text);
+.tdot-red {
+  background-color: #ef4444;
+  opacity: 0.85;
 }
 
-.skills-list {
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    font-weight: 300;
+.tdot-yellow {
+  background-color: #f59e0b;
+  opacity: 0.85;
 }
 
-.skill-text {
-    color: var(--color-text-secondary);
+.tdot-green {
+  background-color: #10b981;
+  opacity: 0.85;
 }
 
-/* Timeline */
-.timeline-clean {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
+.facts-header-tag {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
 }
 
-.timeline-item-clean {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 40px;
+.facts-terminal-ico {
+  color: #10b981;
 }
 
-.timeline-meta-clean {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+.facts-live-blip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 2px 7px;
+  border-radius: 4px;
 }
 
-.timeline-year {
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    color: var(--color-text);
-    font-weight: 500;
+/* Facts Matrix Body */
+.facts-grid-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 8px 0;
 }
 
-.timeline-location, .timeline-score {
-    font-family: var(--font-primary);
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
+.fact-row-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.timeline-content-clean {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.fact-row-item:last-child {
+  border-bottom: none;
 }
 
-.timeline-role {
-    font-family: var(--font-secondary);
-    font-size: 1.75rem;
-    color: var(--color-text);
-    font-weight: 400;
-    line-height: 1.2;
+.fact-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+  flex-shrink: 0;
 }
 
-.timeline-company {
-    font-family: var(--font-primary);
-    font-size: 1.1rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 12px;
+.fact-val {
+  font-family: var(--font-heading);
+  font-size: 0.86rem;
+  color: #f1f5f9;
+  font-weight: 600;
+  text-align: right;
 }
 
-.timeline-details {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.fact-val.highlight-green {
+  color: #34d399;
+  font-weight: 600;
 }
 
-.timeline-detail-item {
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    font-weight: 300;
-    position: relative;
-    padding-left: 20px;
+.fact-val.tech-inline-tags {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-.timeline-detail-item::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--color-text-muted);
+/* Bottom Status Beacon Ribbon */
+.facts-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+  padding: 9px 12px;
+  margin-top: 8px;
 }
 
-/* Animations */
-.fade-in-section {
+.status-indicator-beacon {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+}
+
+.beacon-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.beacon-ping {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.4);
+  animation: beacon-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes beacon-ping {
+  75%, 100% {
+    transform: scale(2);
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 }
 
-.fade-in-section.is-visible {
-    opacity: 1;
-    transform: none;
+.footer-status-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  color: #34d399;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Responsive */
+/* ── THE ACADEMIC HIGHWAY / EDUCATION ROAD STYLES ── */
+.about-education-road {
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.edu-road-header {
+  margin-bottom: 35px;
+}
+
+.edu-road-meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  white-space: nowrap;
+}
+
+.edu-route-icon {
+  color: #10b981;
+}
+
+.edu-meta-sep {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.edu-meta-sub {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.edu-road-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.edu-road-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edu-cap-icon {
+  color: #10b981;
+}
+
+.edu-road-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.edu-grad-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.edu-road-lead {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 680px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── ROAD HIGHWAY STRIP (Horizontal on Desktop) ── */
+.edu-highway-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.edu-asphalt-track {
+  position: relative;
+  width: 100%;
+  height: 76px;
+  background: linear-gradient(180deg, #101017 0%, #151520 50%, #0d0d14 100%);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  margin-bottom: 35px;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+.edu-curb-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+.edu-curb-top {
+  top: 4px;
+}
+
+.edu-curb-bottom {
+  bottom: 4px;
+}
+
+.edu-lane-divider {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform: translateY(-50%);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.edu-lane-stripes-pattern {
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #10b981 0px,
+    #10b981 24px,
+    transparent 24px,
+    transparent 48px
+  );
+  opacity: 0.85;
+  animation: eduLaneDashFlow 6s linear infinite;
+}
+
+@keyframes eduLaneDashFlow {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.edu-speed-pulse {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 120px;
+  height: 9px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #ffffff 60%,
+    #10b981 100%
+  );
+  border-radius: 999px;
+  filter: blur(1.5px);
+  box-shadow: 0 0 12px #10b981;
+  animation: eduSpeedPulseTravel 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  z-index: 2;
+}
+
+@keyframes eduSpeedPulseTravel {
+  0% { left: -120px; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.edu-milestones-row {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 40px;
+  z-index: 3;
+}
+
+.edu-milestone-sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.edu-milestone-sign:hover {
+  transform: translateY(-2px);
+}
+
+.edu-sign-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.edu-sign-board {
+  background: rgba(14, 14, 20, 0.95);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  padding: 6px 14px;
+  min-width: 140px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.edu-milestone-sign.sign-active .edu-sign-board {
+  border-color: var(--edu-accent);
+  box-shadow: 0 0 20px var(--edu-glow), 0 8px 24px rgba(0, 0, 0, 0.8);
+  background: rgba(18, 18, 28, 0.98);
+}
+
+.edu-sign-top-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.edu-sign-km {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--edu-accent);
+  letter-spacing: 0.08em;
+}
+
+.edu-sign-route {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.06em;
+}
+
+.edu-sign-level {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.edu-sign-grad-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #10b981;
+  letter-spacing: 0.08em;
+}
+
+.edu-sign-passed {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.06em;
+}
+
+.edu-road-stem {
+  width: 2px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  margin-top: 4px;
+  transition: background 0.3s ease;
+}
+
+.edu-milestone-sign.sign-active .edu-road-stem {
+  background: var(--edu-accent);
+  box-shadow: 0 0 8px var(--edu-accent);
+}
+
+/* ── 3 EDUCATION MILESTONE CARDS (Left to Right) ── */
+.edu-highway-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  width: 100%;
+}
+
+.mobile-vertical-edu-road-spine {
+  display: none;
+}
+
+.edu-milestone-card {
+  background: linear-gradient(165deg, rgba(16, 16, 24, 0.9) 0%, rgba(10, 10, 14, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(14px);
+}
+
+.edu-milestone-card:hover,
+.edu-milestone-card.card-spotlight {
+  border-color: var(--card-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -10px var(--card-glow), 0 0 0 1px var(--card-accent);
+}
+
+.edu-milestone-card.card-degree-summit {
+  border-color: rgba(16, 185, 129, 0.3);
+  background: linear-gradient(165deg, rgba(14, 26, 20, 0.92) 0%, rgba(9, 14, 12, 0.98) 100%);
+}
+
+.edu-card-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 12px;
+}
+
+.edu-route-capsule {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--card-accent);
+  font-weight: 600;
+}
+
+.edu-period-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.edu-score-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.card-degree-summit .edu-score-pill {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+.edu-card-core {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.edu-card-sublabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--card-accent);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.edu-card-degree-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+  margin: 0 0 4px;
+}
+
+.edu-institution-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 6px;
+}
+
+.uni-icon {
+  color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.edu-card-note {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.edu-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 12px;
+  margin-top: 4px;
+}
+
+.edu-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--card-accent);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.edu-loc-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── RESPONSIVE ADAPTATIONS: MOBILE ROAD STRUCTURE ── */
+@media (max-width: 1024px) {
+  .edu-highway-cards-grid {
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+  }
+  .edu-milestone-card {
+    scroll-snap-align: start;
+  }
+}
+
 @media (max-width: 900px) {
-    .about-editorial-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        margin-bottom: 64px;
-    }
-
-    .timeline-item-clean {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .timeline-meta-clean {
-        flex-direction: row;
-        align-items: center;
-        gap: 16px;
-    }
+  .about-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-quick-facts-card {
+    aspect-ratio: auto;
+    min-height: auto;
+  }
 }
 
-@media (max-width: 600px) {
-    .about-inner {
-        padding: 0 20px;
-    }
+@media (max-width: 768px) {
+  /* Clean uncluttered single-line badge on mobile */
+  .edu-road-meta-tag {
+    white-space: nowrap;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
 
-    .section-title {
-        font-size: 2.5rem;
-    }
+  .edu-road-meta-tag .edu-meta-sep,
+  .edu-road-meta-tag .edu-meta-sub {
+    display: none;
+  }
 
-    .bio-text {
-        font-size: 1.1rem;
-    }
+  /* On mobile: Hide horizontal track */
+  .edu-asphalt-track {
+    display: none;
+  }
 
-    .about-stats-clean {
-        flex-direction: column;
-        gap: 32px;
-    }
+  .edu-highway-wrapper {
+    margin-top: 20px;
+  }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
+  /* Vertical Highway Road Spine (Top to Bottom) */
+  .mobile-vertical-edu-road-spine {
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 15px;
+    bottom: 25px;
+    width: 22px;
+    z-index: 1;
+  }
+
+  .vertical-edu-asphalt {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #101017 0%, #151520 50%, #0d0d14 100%);
+    border-radius: 999px;
+    border-left: 2px solid rgba(255, 255, 255, 0.25);
+    border-right: 2px solid rgba(255, 255, 255, 0.25);
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+  }
+
+  .vertical-edu-lane-stripes {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 200%;
+    transform: translateX(-50%);
+    background: repeating-linear-gradient(
+      180deg,
+      #10b981 0px,
+      #10b981 18px,
+      transparent 18px,
+      transparent 36px
+    );
+    animation: verticalEduLaneFlow 4s linear infinite;
+  }
+
+  @keyframes verticalEduLaneFlow {
+    from { transform: translate(-50%, 0); }
+    to { transform: translate(-50%, -50%); }
+  }
+
+  .vertical-edu-speed-pulse {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 6px;
+    height: 50px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      #ffffff 50%,
+      #10b981 100%
+    );
+    border-radius: 999px;
+    filter: blur(1px);
+    box-shadow: 0 0 10px #10b981;
+    animation: verticalEduPulseTravel 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes verticalEduPulseTravel {
+    0% { top: 0%; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { top: calc(100% - 50px); opacity: 0; }
+  }
+
+  /* Compact Cards arranged vertically from top to bottom along the road */
+  .edu-highway-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-left: 48px;
+    position: relative;
+    overflow-x: visible;
+  }
+
+  .edu-milestone-card::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 32px;
+    width: 26px;
+    height: 2px;
+    background: linear-gradient(90deg, #10b981, var(--card-accent));
+    box-shadow: 0 0 6px var(--card-accent);
+  }
+
+  .edu-milestone-card {
+    width: 100%;
+    padding: 18px 16px;
+  }
+
+  .edu-road-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 540px) {
+  .about-quick-facts-card {
+    padding: 18px 16px;
+  }
+  .fact-row-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px 0;
+  }
+  .fact-val {
+    text-align: left;
+  }
+  .edu-card-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
 }

@@ -1,0 +1,603 @@
+/* ── THE ENGINEERING ROAD & HIGHWAY EXPERIENCE STYLES ── */
+
+.experience-section {
+  position: relative;
+  padding: 100px 28px 120px;
+  background-color: #08080a;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.experience-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Header Strip */
+.experience-header-strip {
+  margin-bottom: 45px;
+}
+
+.header-meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  white-space: nowrap;
+}
+
+.route-icon {
+  color: #10b981;
+}
+
+.meta-sep {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.meta-sub {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.experience-main-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.experience-lead-text {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 660px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── CAREER HIGHWAY SHELL ── */
+.career-highway-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ── DESKTOP HORIZONTAL HIGHWAY ASPHALT TRACK ── */
+.highway-asphalt-track {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(180deg, #101017 0%, #151520 50%, #0d0d14 100%);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+/* Curbs / Road Edge Lines */
+.highway-curb-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+}
+
+.curb-top {
+  top: 4px;
+}
+
+.curb-bottom {
+  bottom: 4px;
+}
+
+/* Center Dividing Line: Classic Animated Yellow Road Dashes */
+.highway-lane-divider {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform: translateY(-50%);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.lane-stripes-pattern {
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #f59e0b 0px,
+    #f59e0b 26px,
+    transparent 26px,
+    transparent 50px
+  );
+  opacity: 0.85;
+  animation: laneDashFlow 6s linear infinite;
+}
+
+@keyframes laneDashFlow {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Light Vehicle / Energy Pulse driving across the highway */
+.highway-speed-pulse {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 120px;
+  height: 9px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.95) 60%,
+    #10b981 100%
+  );
+  border-radius: 999px;
+  filter: blur(1.5px);
+  box-shadow: 0 0 15px #10b981;
+  animation: vehicleSpeed 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes vehicleSpeed {
+  0% { left: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { left: calc(100% - 120px); opacity: 0; }
+}
+
+/* ── HIGHWAY MILESTONE WAYPOINT SIGNS (On the Road) ── */
+.highway-milestones-row {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  z-index: 3;
+  padding: 0 20px;
+}
+
+.highway-milestone-sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Sign Box */
+.highway-sign-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-8px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.highway-milestone-sign:hover .highway-sign-box,
+.highway-milestone-sign.sign-active .highway-sign-box {
+  transform: translateY(-14px) scale(1.04);
+}
+
+.sign-board {
+  background: rgba(14, 14, 20, 0.92);
+  border: 1px solid var(--road-accent);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7), 0 0 15px var(--road-glow);
+  border-radius: 8px;
+  padding: 6px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  backdrop-filter: blur(10px);
+}
+
+.sign-top-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sign-km {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--road-accent);
+  letter-spacing: 0.05em;
+}
+
+.sign-route {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.08em;
+}
+
+.sign-company {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.sign-live-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: #10b981;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+.live-dot-pulse {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  animation: liveDotBlink 1.4s infinite;
+}
+
+@keyframes liveDotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.sign-post-metal {
+  width: 3px;
+  height: 12px;
+  background: linear-gradient(180deg, var(--road-accent), rgba(255, 255, 255, 0.2));
+}
+
+/* Connecting Road Stem down to Job Card */
+.highway-road-stem {
+  position: absolute;
+  top: 36px;
+  width: 2px;
+  height: 28px;
+  background: linear-gradient(180deg, var(--road-accent), rgba(255, 255, 255, 0.08));
+  opacity: 0.4;
+  transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+.highway-milestone-sign:hover .highway-road-stem,
+.highway-milestone-sign.sign-active .highway-road-stem {
+  opacity: 1;
+  box-shadow: 0 0 8px var(--road-accent);
+}
+
+/* ── 3 ROAD DESTINATION CARDS (Company & Designation Only) ── */
+.highway-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+  margin-top: 10px;
+}
+
+/* Hidden by default on desktop */
+.mobile-vertical-road-spine {
+  display: none;
+}
+
+.highway-job-card {
+  position: relative;
+  background: rgba(14, 14, 20, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              background 0.35s ease;
+  user-select: none;
+}
+
+.highway-job-card:hover,
+.highway-job-card.card-spotlight {
+  transform: translateY(-6px);
+  border-color: var(--card-accent);
+  background: rgba(18, 18, 26, 0.88);
+  box-shadow: 0 20px 45px -10px var(--card-glow),
+              0 0 0 1px var(--card-accent),
+              0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ── PRESENT JOB STATUS PILL (WORKING HERE 📍) ── */
+.card-destination-summit {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(14, 18, 22, 0.78);
+}
+
+.present-card-status-badge {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.working-here-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(8, 8, 12, 0.95);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #10b981;
+  white-space: nowrap;
+  animation: speechFloat 3s ease-in-out infinite;
+}
+
+@keyframes speechFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.speech-live-blip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+/* Card Header with Route Indicator */
+.card-highway-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.card-route-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--card-accent);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.compass-ico {
+  color: var(--card-accent);
+}
+
+.card-period-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Company Name & Designation Core */
+.card-content-core {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-company-label {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--card-accent);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.card-designation-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+
+.card-location-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.location-ico {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.loc-sep {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.type-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* ── RESPONSIVE ADAPTATIONS: MOBILE TOP-TO-BOTTOM ROAD STRUCTURE ── */
+@media (max-width: 1024px) {
+  .highway-cards-grid {
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scroll-snap-type: x mandatory;
+  }
+  .highway-job-card {
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Clean uncluttered single-line badge on mobile */
+  .header-meta-tag {
+    white-space: nowrap;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .header-meta-tag .meta-sep,
+  .header-meta-tag .meta-sub {
+    display: none;
+  }
+
+  /* On mobile: Hide the crammed horizontal highway */
+  .highway-asphalt-track {
+    display: none;
+  }
+
+  .career-highway-wrapper {
+    margin-top: 20px;
+  }
+
+  /* Vertical Highway Road Spine (Top to Bottom) */
+  .mobile-vertical-road-spine {
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 15px;
+    bottom: 25px;
+    width: 22px;
+    z-index: 1;
+  }
+
+  .vertical-road-asphalt {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #101017 0%, #151520 50%, #0d0d14 100%);
+    border-radius: 999px;
+    border-left: 2px solid rgba(255, 255, 255, 0.25);
+    border-right: 2px solid rgba(255, 255, 255, 0.25);
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+  }
+
+  .vertical-lane-stripes {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 200%;
+    transform: translateX(-50%);
+    background: repeating-linear-gradient(
+      180deg,
+      #f59e0b 0px,
+      #f59e0b 20px,
+      transparent 20px,
+      transparent 38px
+    );
+    animation: verticalLaneFlow 4s linear infinite;
+  }
+
+  @keyframes verticalLaneFlow {
+    from { transform: translate(-50%, 0); }
+    to { transform: translate(-50%, -50%); }
+  }
+
+  .vertical-speed-pulse {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 6px;
+    height: 60px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      #ffffff 50%,
+      #10b981 100%
+    );
+    border-radius: 999px;
+    filter: blur(1px);
+    box-shadow: 0 0 10px #10b981;
+    animation: verticalPulseTravel 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes verticalPulseTravel {
+    0% { top: 0%; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { top: calc(100% - 60px); opacity: 0; }
+  }
+
+  /* Cards arranged vertically from top to bottom along the road */
+  .highway-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-left: 48px; /* Room for the vertical road on the left */
+    position: relative;
+    overflow-x: visible;
+  }
+
+  /* Connector bridge from the vertical road to each card */
+  .highway-job-card::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 36px;
+    width: 26px;
+    height: 2px;
+    background: linear-gradient(90deg, #f59e0b, var(--card-accent));
+    box-shadow: 0 0 6px var(--card-accent);
+  }
+
+  .highway-job-card {
+    width: 100%;
+  }
+}
+

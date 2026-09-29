@@ -1,0 +1,110 @@
+/* ── FLOATING MOBILE PHONE BOTTOM DOCK (Reference: emp.jacmedialand.com) ── */
+
+.mobile-dock-wrapper {
+  display: none; /* Hidden on desktop screens */
+  position: fixed;
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 390px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-dock-wrapper {
+    display: block; /* Visible exclusively on mobile devices */
+  }
+}
+
+.mobile-dock-container {
+  pointer-events: auto;
+  background: rgba(14, 14, 20, 0.9);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 28px;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85),
+              0 0 0 1px rgba(255, 255, 255, 0.08),
+              0 4px 14px rgba(16, 185, 129, 0.15);
+}
+
+.dock-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 12px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.dock-tab-item:active {
+  transform: scale(0.9);
+}
+
+.dock-icon-shield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.dock-tab-label {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+/* Active State */
+.dock-tab-item.dock-active {
+  color: #10b981;
+}
+
+.dock-tab-item.dock-active .dock-tab-label {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.dock-tab-item.dock-active .dock-icon-shield {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.6));
+}
+
+/* ── CENTER FEATURED BUTTON (matching Punch button in reference) ── */
+.dock-tab-item.dock-tab-featured {
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 18px;
+  padding: 6px 14px;
+  color: #10b981;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
+}
+
+.dock-tab-item.dock-tab-featured.dock-active,
+.dock-tab-item.dock-tab-featured:hover {
+  background: #10b981;
+  color: #08080a;
+  border-color: #10b981;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+}
+
+.dock-tab-item.dock-tab-featured.dock-active .dock-tab-label,
+.dock-tab-item.dock-tab-featured:hover .dock-tab-label {
+  color: #08080a;
+}
