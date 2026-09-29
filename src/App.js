@@ -10,9 +10,11 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ResumeModal from "./components/ResumeModal";
 import MobileDock from "./components/MobileDock";
+import useAnimatedFavicon from "./utils/useAnimatedFavicon";
 import "./App.css";
 
 function App() {
+  useAnimatedFavicon();
   const [introDone, setIntroDone] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
