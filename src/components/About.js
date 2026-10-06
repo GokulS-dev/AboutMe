@@ -85,7 +85,7 @@ const About = () => {
             </h3>
 
             <p className="about-bio-p">
-              I specialize in bridging the gap between rigorous system backend architecture and fluid, responsive user experiences. Having built enterprise workflow management tools, examination portals, and school SaaS platforms, I am passionate about crafting maintainable, high-impact software.
+              I specialize in bridging the gap between rigorous system backend architecture and fluid, responsive user experiences. Having built enterprise workflow management tools, examination portals, and healthcare web modules, I am passionate about crafting maintainable, high-impact software.
             </p>
 
             <p className="about-bio-p">
@@ -137,8 +137,8 @@ const About = () => {
                   <span className="fact-val">Software Development Engineer</span>
                 </div>
                 <div className="fact-row-item">
-                  <span className="fact-label">CURRENT</span>
-                  <span className="fact-val highlight-green">Full Stack Dev @ JAC MediaLand</span>
+                  <span className="fact-label">STATUS</span>
+                  <span className="fact-val highlight-green">Open to Work · Immediate Joiner</span>
                 </div>
                 <div className="fact-row-item">
                   <span className="fact-label">EDUCATION</span>

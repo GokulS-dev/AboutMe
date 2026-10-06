@@ -90,7 +90,7 @@ function App() {
 
       <Footer />
 
-      {/* Floating Mobile Phone Bottom Dock (Reference: emp.jacmedialand.com) */}
+      {/* Floating Mobile Navigation Bottom Dock */}
       <MobileDock activeSection={activeSection} />
 
       {/* Accessible Resume PDF Viewer Modal */}

@@ -170,8 +170,10 @@
   position: relative;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 840px;
+  margin: 0 auto;
+  gap: 36px;
   z-index: 3;
   padding: 0 20px;
 }
@@ -289,15 +291,16 @@
   box-shadow: 0 0 8px var(--road-accent);
 }
 
-/* ── 3 ROAD DESTINATION CARDS (Company & Designation Only) ── */
+/* ── ROAD DESTINATION CARDS (Company & Designation Only) ── */
 .highway-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 840px;
+  margin: 10px auto 0;
+  gap: 36px;
   align-items: stretch;
   position: relative;
   z-index: 2;
-  margin-top: 10px;
 }
 
 /* Hidden by default on desktop */
@@ -468,7 +471,7 @@
 /* ── RESPONSIVE ADAPTATIONS: MOBILE TOP-TO-BOTTOM ROAD STRUCTURE ── */
 @media (max-width: 1024px) {
   .highway-cards-grid {
-    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
     overflow-x: auto;
     padding-bottom: 20px;
     scroll-snap-type: x mandatory;

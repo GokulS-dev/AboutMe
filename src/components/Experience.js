@@ -30,24 +30,11 @@ const roadMilestones = [
     type: "Contract / Internship",
     accentColor: "#38bdf8",
     accentGlow: "rgba(56, 189, 248, 0.35)",
-  },
-  {
-    id: "jac",
-    milePost: "KM NOW",
-    routeCode: "SUMMIT TERMINAL",
-    period: "2026 — Present",
-    role: "Full Stack Developer",
-    company: "JAC MediaLand IT Solutions",
-    location: "Tamil Nadu, India",
-    type: "Full-Time",
-    isCurrent: true,
-    accentColor: "#10b981",
-    accentGlow: "rgba(16, 185, 129, 0.4)",
   }
 ];
 
 const Experience = () => {
-  const [activeIdx, setActiveIdx] = useState(2); // default spotlight on active role (JAC MediaLand)
+  const [activeIdx, setActiveIdx] = useState(1); // default spotlight on most recent role (Srivyn Platforms)
 
   return (
     <section id="experience" className="experience-section">
@@ -62,7 +49,7 @@ const Experience = () => {
           </div>
           <h2 className="experience-main-heading">The Engineering Road</h2>
           <p className="experience-lead-text">
-            Chronological milestones across industrial automation, healthcare portals, and production SaaS architecture.
+            Chronological milestones across industrial automation, API integrations, and healthcare web platforms.
           </p>
         </div>
 

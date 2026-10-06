@@ -125,8 +125,8 @@ const Hero = () => {
                   <span className="mono-val">Tamil Nadu, India</span>
                 </div>
                 <div className="mono-row">
-                  <span className="mono-key">Current:</span>
-                  <span className="mono-val highlight">JAC MediaLand</span>
+                  <span className="mono-key">Status:</span>
+                  <span className="mono-val highlight">Open to Work</span>
                 </div>
               </div>
             </div>
